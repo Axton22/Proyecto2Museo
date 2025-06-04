@@ -83,4 +83,20 @@ public class SalaJpaController {
             }
         }
     } 
+    
+    public void delete(Sala sala) {
+        EntityManager em = this.getEmf().createEntityManager();
+        
+        try {
+            em.getTransaction().begin();
+            Sala porEliminar = em.find(Sala.class, sala.getId());
+            em.remove(porEliminar);
+            em.getTransaction().commit();
+            
+        } finally {
+            if(em != null) {
+                em.close();
+            }
+        }
+    }
 }

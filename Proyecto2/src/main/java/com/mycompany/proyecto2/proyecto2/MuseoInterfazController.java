@@ -4,8 +4,10 @@
  */
 package com.mycompany.proyecto2.proyecto2;
 
+import Controladores.ColeccionJpaController;
 import Controladores.InterfazController;
 import Controladores.SalaJpaController;
+import Persistencia.Coleccion;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -48,6 +51,10 @@ public class MuseoInterfazController implements Initializable {
     private Button editarBtn;
     @FXML
     private Button FiltrarBtn;
+    @FXML
+    private Button coleccionBtn;
+    @FXML
+    private Pane paneContenidos;
 
     /**
      * Initializes the controller class.
@@ -57,11 +64,20 @@ public class MuseoInterfazController implements Initializable {
         SalaJpaController sala = new SalaJpaController();
         InterfazController interfaz = new InterfazController();
         
+        ColeccionJpaController ctrl = new ColeccionJpaController();
+        
+        interfaz.probar(paneContenidos);
+        
         interfaz.mouseClick(tvContenido);
         
         interfaz.presionarSalaBtn(SalaBtn, tvContenido, sala);
-        interfaz.Insertar(infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn);
-        interfaz.editar(editarBtn, FiltrarBtn, eliminarBtn, GuardarBtn, insertarBtn, FiltrarTf, FiltrarCb, infoTxt, infoLbl);
+        interfaz.InsertarSala(infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn);
+        interfaz.editarSala(editarBtn, FiltrarBtn, eliminarBtn, GuardarBtn, insertarBtn, FiltrarTf, FiltrarCb, infoTxt, infoLbl);
+        interfaz.eliminarSala(eliminarBtn);
+        
+        interfaz.presionarColeccionBtn(coleccionBtn, tvContenido, ctrl);
+        
+        
     }    
     
 }

@@ -19,148 +19,43 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="933.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2.proyecto2.MuseoInterfazController">
    <children>
-      <Pane layoutX="20.0" layoutY="17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="894.0" style="-fx-border-color: Black; -fx-background-color: white; -fx-border-width: 2;">
+      <Pane fx:id="paneContenidos" layoutX="237.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="670.0" style="-fx-border-color: Black; -fx-background-color: white; -fx-border-width: 2;">
          <children>
-            <Label alignment="CENTER" layoutX="447.0" layoutY="14.0" prefHeight="59.0" prefWidth="227.0" text="Mantenimientos">
+            <Label alignment="CENTER" layoutX="222.0" layoutY="14.0" prefHeight="59.0" prefWidth="227.0" text="Mantenimientos">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="FiltrarTf" layoutX="305.0" layoutY="122.0" prefHeight="25.0" prefWidth="147.0" />
-            <ComboBox fx:id="FiltrarCb" layoutX="561.0" layoutY="121.0" prefHeight="25.0" prefWidth="147.0" />
-            <Label layoutX="246.0" layoutY="125.0" text="Filtro 1:" />
-            <Label layoutX="503.0" layoutY="126.0" text="Filtro 2:" />
-            <Button fx:id="FiltrarBtn" layoutX="755.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Filtrar">
+            <TextField fx:id="FiltrarTf" layoutX="81.0" layoutY="123.0" prefHeight="25.0" prefWidth="147.0" />
+            <ComboBox fx:id="FiltrarCb" layoutX="299.0" layoutY="123.0" prefHeight="25.0" prefWidth="147.0" />
+            <Label layoutX="21.0" layoutY="125.0" text="Filtro 1:" />
+            <Label layoutX="246.0" layoutY="127.0" text="Filtro 2:" />
+            <Button fx:id="FiltrarBtn" layoutX="510.0" layoutY="123.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Filtrar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
-            <TableView fx:id="tvContenido" layoutX="255.0" layoutY="171.0" prefHeight="276.0" prefWidth="599.0">
+            <TableView fx:id="tvContenido" layoutX="36.0" layoutY="173.0" prefHeight="276.0" prefWidth="599.0">
                <columns>
                   <TableColumn prefWidth="75.0" text="C1" />
                   <TableColumn prefWidth="75.0" text="C2" />
                </columns>
             </TableView>
-            <Button fx:id="eliminarBtn" layoutX="283.0" layoutY="507.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Eliminar">
+            <Button fx:id="eliminarBtn" layoutX="41.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Eliminar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="editarBtn" layoutX="503.0" layoutY="506.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Editar">
+            <Button fx:id="editarBtn" layoutX="287.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Editar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="insertarBtn" layoutX="743.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Insertar">
+            <Button fx:id="insertarBtn" layoutX="510.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Insertar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
-            <Pane layoutY="3.0" prefHeight="555.0" prefWidth="214.0" style="-fx-border-color: black;">
-               <children>
-                  <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="196.0" layoutX="1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="214.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="122.0" layoutX="36.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="145.0" />
-                  <Line endX="98.0" endY="76.0" layoutX="81.0" layoutY="83.0" startX="-43.5" startY="-45.5" />
-                  <Line endX="88.5" endY="-50.5" layoutX="91.0" layoutY="88.0" startX="-55.0" startY="71.0" />
-                  <Accordion layoutX="1.0" layoutY="193.0" prefHeight="364.0" prefWidth="214.0" style="-fx-background-color: White; -fx-border-color: black;">
-                     <panes>
-                        <TitledPane animated="false" prefHeight="169.0" prefWidth="239.0" text="Mantenimiento">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="209.0">
-                                 <children>
-                                    <GridPane gridLinesVisible="true" layoutX="-4.0" layoutY="1.0" prefHeight="143.0" prefWidth="218.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Button fx:id="SalaBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="219.0" text="Salas" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Colecciones" GridPane.rowIndex="1" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" text="Entradas">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="209.0">
-                                 <children>
-                                    <GridPane gridLinesVisible="true" layoutX="-3.0" prefHeight="52.0" prefWidth="214.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Vender entrada" />
-                                          <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Validar entrada" GridPane.rowIndex="1" />
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" text="Valoración">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <GridPane gridLinesVisible="true" layoutX="-1.0" layoutY="2.0" prefHeight="23.0" prefWidth="214.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="211.0" text="Ver valoraciones" />
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" text="Reportes">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <GridPane gridLinesVisible="true" layoutX="-5.0" layoutY="1.0" prefHeight="25.0" prefWidth="214.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0" text="Ver reportes" />
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </TitledPane>
-                     </panes>
-                  </Accordion>
-                  <Label alignment="CENTER" layoutX="49.0" layoutY="161.0" prefHeight="28.0" prefWidth="112.0" text="Sala">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
             <Label fx:id="infoLbl" alignment="CENTER" layoutX="223.0" layoutY="449.0" prefHeight="26.0" prefWidth="316.0" text="Label" visible="false" />
             <TextField fx:id="infoTxt" layoutX="548.0" layoutY="448.0" prefHeight="13.0" prefWidth="149.0" visible="false" />
             <Button fx:id="GuardarBtn" layoutX="730.0" layoutY="449.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" style="-fx-border-color: Black;" text="Guardar" visible="false">
@@ -168,6 +63,111 @@
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="20.0" prefHeight="555.0" prefWidth="214.0" style="-fx-border-color: black; -fx-border-width: 2;">
+         <children>
+            <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="2.0" fill="WHITE" height="191.0" layoutX="1.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="212.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="122.0" layoutX="36.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="145.0" />
+            <Line endX="98.0" endY="76.0" layoutX="81.0" layoutY="83.0" startX="-43.5" startY="-45.5" />
+            <Line endX="88.5" endY="-50.5" layoutX="91.0" layoutY="88.0" startX="-55.0" startY="71.0" />
+            <Accordion layoutX="1.0" layoutY="193.0" prefHeight="364.0" prefWidth="214.0" style="-fx-background-color: White; -fx-border-color: black;">
+               <panes>
+                  <TitledPane animated="false" prefHeight="169.0" prefWidth="239.0" text="Mantenimiento">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="209.0">
+                           <children>
+                              <GridPane gridLinesVisible="true" layoutX="-4.0" layoutY="1.0" prefHeight="143.0" prefWidth="218.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button fx:id="SalaBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="219.0" text="Salas" />
+                                    <Button fx:id="coleccionBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Colecciones" GridPane.rowIndex="1" />
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Entradas">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="209.0">
+                           <children>
+                              <GridPane gridLinesVisible="true" layoutX="-3.0" prefHeight="52.0" prefWidth="214.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Vender entrada" />
+                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Validar entrada" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Valoración">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane gridLinesVisible="true" layoutX="-1.0" layoutY="2.0" prefHeight="23.0" prefWidth="214.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="211.0" text="Ver valoraciones" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Reportes">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane gridLinesVisible="true" layoutX="-5.0" layoutY="1.0" prefHeight="25.0" prefWidth="214.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0" text="Ver reportes" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+            <Label alignment="CENTER" layoutX="49.0" layoutY="161.0" prefHeight="28.0" prefWidth="112.0" text="Sala">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

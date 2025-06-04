@@ -15,10 +15,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import Controladores.SalaJpaController;
+import Controladores.ColeccionJpaController;
+import Persistencia.Coleccion;
 import Persistencia.Museo;
+import java.util.Optional;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.Node;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableRow;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -32,6 +38,8 @@ public class InterfazController {
     String bandera;
     boolean guardarEditando;
     boolean guardarInsertando;
+    Coleccion coleccion;
+    ColeccionJpaController ctrl;
     
     public InterfazController() {
         guardado = false;
@@ -131,7 +139,7 @@ public class InterfazController {
         });
     }
     
-    public void Insertar(TextField infoTxt, Button guardarBtn, Label infoLbl, Button insertarBtn, TextField filt1, ComboBox filt2, Button filtBtn, Button elim, Button edit) {
+    public void InsertarSala(TextField infoTxt, Button guardarBtn, Label infoLbl, Button insertarBtn, TextField filt1, ComboBox filt2, Button filtBtn, Button elim, Button edit) {
         infoTxt.setVisible(false);
         infoLbl.setVisible(false);
         guardarBtn.setVisible(false);
@@ -215,7 +223,7 @@ public class InterfazController {
         });
     }
     
-    public void editar(Button editar, Button filt, Button eliminar, Button guardar, Button insertar, TextField filt1, ComboBox filt2, TextField txtDatos, Label lblDatos) {
+    public void editarSala(Button editar, Button filt, Button eliminar, Button guardar, Button insertar, TextField filt1, ComboBox filt2, TextField txtDatos, Label lblDatos) {
         editar.setOnAction(event -> {
             if (!"EDITANDO".equals(getBandera())) {
                 if (sala != null) {
@@ -296,5 +304,77 @@ public class InterfazController {
     txtDatos.setVisible(false);
     lblDatos.setVisible(false);
     guardar.setVisible(false);
+    }
+    
+    public void eliminarSala(Button eliminarBtn) {
+        eliminarBtn.setOnAction(event-> {
+            if(sala != null) {
+            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            mensaje.setTitle("Solicitud de confirmación");
+            mensaje.setContentText("Estas seguro de que deseas eliminar la información de la sala: "
+                    + sala.getId() + " " + sala.getNombreSala());
+        
+            ButtonType si = new ButtonType("SI");
+            ButtonType no = new ButtonType("NO");
+            
+            mensaje.getButtonTypes().setAll(si, no);
+            
+            Optional<ButtonType> resultado = mensaje.showAndWait();
+            
+            if(resultado.isPresent()) {
+                if(resultado.get() == si) {
+                    salaContr.delete(sala);
+                    
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("EXITO");
+                    alert.setContentText("Usuario eliminado EXITADAMENTE");
+                    alert.showAndWait();
+                } 
+            } 
+        }
+        });
+    }
+    
+    //COLECCIÓN
+    
+    public void cargarColeccionDatos(TableView tabla, ColeccionJpaController colecCtrl) {
+        tabla.getColumns().clear();
+        
+        TableColumn id = new TableColumn("ID");
+        id.setCellValueFactory(new PropertyValueFactory<Coleccion, Integer>("id"));
+        
+        TableColumn<Coleccion, Integer> idSala = new TableColumn<>("ID Sala");
+        idSala.setCellValueFactory(cellData -> {
+            Sala sala = cellData.getValue().getIdSala();
+            return new SimpleIntegerProperty(sala != null ? sala.getId() : 0).asObject();
+        });
+        
+        TableColumn nombre = new TableColumn("Nombre ");
+        nombre.setCellValueFactory(new PropertyValueFactory<Coleccion, String>("nombreColeccion"));
+        
+        TableColumn siglo = new TableColumn("Siglo");
+        siglo.setCellValueFactory(new PropertyValueFactory<Coleccion, String>("siglo"));
+        
+        TableColumn descripcion = new TableColumn("Descripcion");
+        descripcion.setCellValueFactory(new PropertyValueFactory<Coleccion, String>("descripcionColeccion"));
+        
+        tabla.getColumns().addAll(id, idSala, nombre, siglo, descripcion);
+        
+        Collection colec = colecCtrl.findColeccionEntities();
+        ObservableList<Coleccion> coleccionJFX = FXCollections.observableArrayList(colec);
+            
+        tabla.setItems(coleccionJFX);  
+    }
+    
+    public void presionarColeccionBtn(Button btn, TableView tabla, ColeccionJpaController ctrl) {
+        btn.setOnAction(event-> {
+            cargarColeccionDatos(tabla, ctrl);
+        });
+    }
+    
+    public void probar(Pane pane) {
+        for (Node nodo : pane.getChildren()) {
+            nodo.setVisible(false);
+        }
     }
 }
