@@ -8,6 +8,7 @@ import Controladores.ColeccionJpaController;
 import Controladores.InterfazController;
 import Controladores.SalaJpaController;
 import Persistencia.Coleccion;
+import Persistencia.Sala;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -34,7 +35,7 @@ public class MuseoInterfazController implements Initializable {
     @FXML
     private ComboBox<?> FiltrarCb;
     @FXML
-    private TableView<?> tvContenido;
+    private TableView<Object> tvContenido;
     @FXML
     private Button SalaBtn;
     @FXML
@@ -55,29 +56,34 @@ public class MuseoInterfazController implements Initializable {
     private Button coleccionBtn;
     @FXML
     private Pane paneContenidos;
+    @FXML
+    private ComboBox<Object> infoCb;
+    @FXML
+    private Button especiesBtn;
+    @FXML
+    private Button tematicasBtn;
+    @FXML
+    private Button preciosBtn;
+    @FXML
+    private Button comisionesBtn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        SalaJpaController sala = new SalaJpaController();
+        infoLbl.setVisible(false);
+        infoTxt.setVisible(false);
+        GuardarBtn.setVisible(false);
+        infoCb.setVisible(false);
+
         InterfazController interfaz = new InterfazController();
         
         ColeccionJpaController ctrl = new ColeccionJpaController();
         
-        interfaz.probar(paneContenidos);
         
-        interfaz.mouseClick(tvContenido);
-        
-        interfaz.presionarSalaBtn(SalaBtn, tvContenido, sala);
-        interfaz.InsertarSala(infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn);
-        interfaz.editarSala(editarBtn, FiltrarBtn, eliminarBtn, GuardarBtn, insertarBtn, FiltrarTf, FiltrarCb, infoTxt, infoLbl);
-        interfaz.eliminarSala(eliminarBtn);
-        
-        interfaz.presionarColeccionBtn(coleccionBtn, tvContenido, ctrl);
-        
-        
+        interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tvContenido, infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb);
+
     }    
     
 }

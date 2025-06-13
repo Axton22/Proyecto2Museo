@@ -33,7 +33,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Especies.findById", query = "SELECT e FROM Especies e WHERE e.id = :id"),
     @NamedQuery(name = "Especies.findByNombreCientifico", query = "SELECT e FROM Especies e WHERE e.nombreCientifico = :nombreCientifico"),
     @NamedQuery(name = "Especies.findByNombreComun", query = "SELECT e FROM Especies e WHERE e.nombreComun = :nombreComun"),
-    @NamedQuery(name = "Especies.findByFechaExtioncion", query = "SELECT e FROM Especies e WHERE e.fechaExtioncion = :fechaExtioncion"),
+    @NamedQuery(name = "Especies.findByFechaExtincion", query = "SELECT e FROM Especies e WHERE e.fechaExtincion = :fechaExtincion"),
     @NamedQuery(name = "Especies.findByEpocaVivio", query = "SELECT e FROM Especies e WHERE e.epocaVivio = :epocaVivio"),
     @NamedQuery(name = "Especies.findByPeso", query = "SELECT e FROM Especies e WHERE e.peso = :peso"),
     @NamedQuery(name = "Especies.findByTamanio", query = "SELECT e FROM Especies e WHERE e.tamanio = :tamanio")})
@@ -51,7 +51,7 @@ public class Especies implements Serializable {
     private String nombreComun;
     @Column(name = "fechaExtioncion")
     @Temporal(TemporalType.DATE)
-    private Date fechaExtioncion;
+    private Date fechaExtincion;
     @Column(name = "epocaVivio")
     private String epocaVivio;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
@@ -97,12 +97,12 @@ public class Especies implements Serializable {
         this.nombreComun = nombreComun;
     }
 
-    public Date getFechaExtioncion() {
-        return fechaExtioncion;
+    public Date getFechaExtincion() {
+        return fechaExtincion;
     }
 
-    public void setFechaExtioncion(Date fechaExtioncion) {
-        this.fechaExtioncion = fechaExtioncion;
+    public void setFechaExtincion(Date fechaExtioncion) {
+        this.fechaExtincion = fechaExtioncion;
     }
 
     public String getEpocaVivio() {

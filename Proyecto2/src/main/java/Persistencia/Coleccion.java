@@ -129,7 +129,7 @@ public class Coleccion implements Serializable {
 
     @Override
     public String toString() {
-        return "Persistencia.Coleccion[ id=" + id + " ]";
+        return nombreColeccion;
     }
     
 }

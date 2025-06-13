@@ -4,6 +4,7 @@ Controladores\exceptions\PreexistingEntityException.class
 Controladores\ComisiontarjetasJpaController.class
 Controladores\InterfazController.class
 Controladores\exceptions\NonexistentEntityException.class
+Controladores\InterfazController$1.class
 com\mycompany\proyecto2\proyecto2\App.class
 Persistencia\Comisiontarjetas_.class
 Persistencia\Sala_.class

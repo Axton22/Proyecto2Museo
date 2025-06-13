@@ -41,28 +41,29 @@
                   <TableColumn prefWidth="75.0" text="C2" />
                </columns>
             </TableView>
-            <Button fx:id="eliminarBtn" layoutX="41.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Eliminar">
+            <Button fx:id="eliminarBtn" layoutX="275.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Eliminar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="editarBtn" layoutX="287.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Editar">
+            <Button fx:id="editarBtn" layoutX="406.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Editar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="insertarBtn" layoutX="510.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Insertar">
+            <Button fx:id="insertarBtn" layoutX="537.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Insertar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
-            <Label fx:id="infoLbl" alignment="CENTER" layoutX="223.0" layoutY="449.0" prefHeight="26.0" prefWidth="316.0" text="Label" visible="false" />
-            <TextField fx:id="infoTxt" layoutX="548.0" layoutY="448.0" prefHeight="13.0" prefWidth="149.0" visible="false" />
-            <Button fx:id="GuardarBtn" layoutX="730.0" layoutY="449.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" style="-fx-border-color: Black;" text="Guardar" visible="false">
+            <Label fx:id="infoLbl" alignment="CENTER" layoutX="21.0" layoutY="461.0" prefHeight="25.0" prefWidth="385.0" />
+            <TextField fx:id="infoTxt" layoutX="410.0" layoutY="460.0" prefHeight="26.0" prefWidth="149.0" />
+            <Button fx:id="GuardarBtn" layoutX="573.0" layoutY="460.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" style="-fx-border-color: Black;" text="Guardar">
                <font>
                   <Font name="Segoe UI Emoji" size="12.0" />
                </font>
             </Button>
+            <ComboBox fx:id="infoCb" layoutX="80.0" layoutY="504.0" prefHeight="26.0" prefWidth="150.0" />
          </children>
       </Pane>
       <Pane layoutX="14.0" layoutY="20.0" prefHeight="555.0" prefWidth="214.0" style="-fx-border-color: black; -fx-border-width: 2;">
@@ -92,10 +93,10 @@
                                  <children>
                                     <Button fx:id="SalaBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="219.0" text="Salas" />
                                     <Button fx:id="coleccionBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Colecciones" GridPane.rowIndex="1" />
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
+                                    <Button fx:id="especiesBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
+                                    <Button fx:id="tematicasBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
+                                    <Button fx:id="preciosBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
+                                    <Button fx:id="comisionesBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
                                  </children>
                               </GridPane>
                            </children>

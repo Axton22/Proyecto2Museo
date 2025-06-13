@@ -144,7 +144,7 @@ public class Sala implements Serializable {
 
     @Override
     public String toString() {
-        return "Persistencia.Sala[ id=" + id + " ]";
+        return nombreSala;
     }
     
 }
