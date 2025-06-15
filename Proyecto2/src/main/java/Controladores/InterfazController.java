@@ -28,6 +28,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Node;
 import javafx.scene.control.ButtonType;
@@ -126,6 +128,10 @@ public class InterfazController {
             editarSala(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb);
 
             eliminarSala(eliminarBtn);
+            
+            filtrarSalaTf(tabla, filtBtn, filtroTF);
+            
+            filtrarSalaCb(tabla, filtBtn, filtroCB);
         });
         
         coleccionBtn.setOnAction(event -> {
@@ -160,6 +166,12 @@ public class InterfazController {
         editarColeccion(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
         
         eliminarColeccion(eliminarBtn);
+        
+        filtrarColeccionTf(tabla, filtBtn, filtroTF);
+        
+            filtrarColeccionCb(tabla, filtBtn, filtroCB);
+            
+            
         });
         
         especiesBtn.setOnAction(event -> {
@@ -195,6 +207,10 @@ public class InterfazController {
             editarEspecies(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
             
             eliminarEspecies(eliminarBtn);
+            
+            filtrarEspeciesTf(tabla, filtBtn, filtroTF);
+            
+            filtrarEspeciesCb(tabla, filtBtn, filtroCB);
         });
         
         tematicaBtn.setOnAction(event -> {
@@ -230,6 +246,10 @@ public class InterfazController {
             editarTematica(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
             
             eliminarTematica(eliminarBtn);
+            
+            filtrarTematicaTf(tabla, filtBtn, filtroTF);
+            
+            filtrarTematicaCb(tabla, filtBtn, filtroCB);
  
         });
         
@@ -267,6 +287,10 @@ public class InterfazController {
             editarPerecio(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
             
             eliminarPrecio(eliminarBtn);
+            
+            filtrarPrecioTf(tabla, filtBtn, filtroTF);
+            
+            filtrarPrecioCb(tabla, filtBtn, filtroCB);
         });
         
         comisionBtn.setOnAction(event -> {
@@ -302,6 +326,10 @@ public class InterfazController {
             editarComision(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb);
             
             eliminarComision(eliminarBtn);
+            
+            filtrarComisionTf(tabla, filtBtn, filtroTF);
+            
+            filtrarComisionCb(tabla, filtBtn, filtroCB);
         });
     }
     
@@ -509,6 +537,43 @@ public class InterfazController {
                 alert.setTitle("Precaución");
                 alert.setContentText("No hay ninguna sala seleccionada");
                 alert.showAndWait();
+            }
+        });
+    }
+    
+    public void filtrarSalaTf(TableView tabla, Button filtrarBtn, TextField filtroTf) {
+        filtrarBtn.setOnAction(event -> {
+        String nombreBuscar = filtroTf.getText().trim().toLowerCase();
+
+        if (!nombreBuscar.isEmpty()) {
+            List<Sala> filtradas = salaCtrl.findSalaEntities().stream()
+                .filter(s -> s.getNombreSala().toLowerCase().contains(nombreBuscar))
+                .collect(Collectors.toList());
+
+            tabla.setItems(FXCollections.observableArrayList(filtradas));
+            
+            filtroTf.setText("");
+        } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin selección");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor seleccione una Sala para filtrar.");
+                alert.showAndWait();
+        }
+        }); 
+    }
+    
+    public void filtrarSalaCb(TableView tabla, Button filtrarBtn, ComboBox filtrarCb) {
+        Collection<Sala> salasActualizadas = salaCtrl.findSalaEntities();
+        ObservableList<Sala> listaSalas = FXCollections.observableArrayList(salasActualizadas);
+        filtrarCb.setItems(listaSalas);
+        
+        filtrarCb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                tabla.setItems(FXCollections.observableArrayList(newVal));
+                
+                Platform.runLater(()-> filtrarCb.setValue(null));
             }
         });
     }
@@ -790,6 +855,43 @@ public class InterfazController {
                 alert.setTitle("Precaución");
                 alert.setContentText("No hay ninguna sala seleccionada");
                 alert.showAndWait();
+            }
+        });
+    }
+    
+    public void filtrarColeccionTf(TableView tabla, Button filtrarBtn, TextField filtroTf) {
+        filtrarBtn.setOnAction(event -> {
+        String nombreBuscar = filtroTf.getText().trim().toLowerCase();
+
+        if (!nombreBuscar.isEmpty()) {
+            List<Coleccion> filtradas = colecCtrl.findColeccionEntities().stream()
+                .filter(s -> s.getNombreColeccion().toLowerCase().contains(nombreBuscar))
+                .collect(Collectors.toList());
+
+            tabla.setItems(FXCollections.observableArrayList(filtradas));
+            
+            filtroTf.setText("");
+        } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin selección");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor seleccione una Colección para filtrar.");
+                alert.showAndWait();
+        }
+        }); 
+    }
+    
+    public void filtrarColeccionCb(TableView tabla, Button filtrarBtn, ComboBox filtrarCb) {
+        Collection<Coleccion> coleccionesActualizadas = colecCtrl.findColeccionEntities();
+        ObservableList<Coleccion> listaColecciones = FXCollections.observableArrayList(coleccionesActualizadas);
+        filtrarCb.setItems(listaColecciones);
+        
+        filtrarCb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                tabla.setItems(FXCollections.observableArrayList(newVal));
+                
+                Platform.runLater(()-> filtrarCb.setValue(null));
             }
         });
     }
@@ -1192,6 +1294,43 @@ public class InterfazController {
         });
     }
     
+    public void filtrarEspeciesTf(TableView tabla, Button filtrarBtn, TextField filtroTf) {
+        filtrarBtn.setOnAction(event -> {
+        String nombreBuscar = filtroTf.getText().trim().toLowerCase();
+
+        if (!nombreBuscar.isEmpty()) {
+            List<Especies> filtradas = especiesCtrl.findEspeciesEntities().stream()
+                .filter(s -> s.getNombreComun().toLowerCase().contains(nombreBuscar))
+                .collect(Collectors.toList());
+
+            tabla.setItems(FXCollections.observableArrayList(filtradas));
+            
+            filtroTf.setText("");
+        } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin selección");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor seleccione una Especie para filtrar.");
+                alert.showAndWait();
+        }
+        }); 
+    }
+    
+    public void filtrarEspeciesCb(TableView tabla, Button filtrarBtn, ComboBox filtrarCb) {
+        Collection<Especies> especiesActualizadas = especiesCtrl.findEspeciesEntities();
+        ObservableList<Especies> listaEspecies = FXCollections.observableArrayList(especiesActualizadas);
+        filtrarCb.setItems(listaEspecies);
+        
+        filtrarCb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                tabla.setItems(FXCollections.observableArrayList(newVal));
+                
+                Platform.runLater(()-> filtrarCb.setValue(null));
+            }
+        });
+    }
+    
     //Temáticas
     
     public void cargarTematicaDatos(TableView tabla) {
@@ -1471,6 +1610,43 @@ public class InterfazController {
                 alert.setTitle("Precaución");
                 alert.setContentText("No hay ninguna sala seleccionada");
                 alert.showAndWait();
+            }
+        });
+    }
+    
+    public void filtrarTematicaTf(TableView tabla, Button filtrarBtn, TextField filtroTf) {
+        filtrarBtn.setOnAction(event -> {
+        String nombreBuscar = filtroTf.getText().trim().toLowerCase();
+
+        if (!nombreBuscar.isEmpty()) {
+            List<Tematica> filtradas = tematicaCtrl.findTematicaEntities().stream()
+                .filter(s -> s.getNombreTematica().toLowerCase().contains(nombreBuscar))
+                .collect(Collectors.toList());
+
+            tabla.setItems(FXCollections.observableArrayList(filtradas));
+            
+            filtroTf.setText("");
+        } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin selección");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor seleccione una Tematica para filtrar.");
+                alert.showAndWait();
+        }
+        }); 
+    }
+    
+    public void filtrarTematicaCb(TableView tabla, Button filtrarBtn, ComboBox filtrarCb) {
+        Collection<Tematica> tematicasActualizadas = tematicaCtrl.findTematicaEntities();
+        ObservableList<Tematica> listaTematicas = FXCollections.observableArrayList(tematicasActualizadas);
+        filtrarCb.setItems(listaTematicas);
+        
+        filtrarCb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                tabla.setItems(FXCollections.observableArrayList(newVal));
+                
+                Platform.runLater(()-> filtrarCb.setValue(null));
             }
         });
     }
@@ -1755,6 +1931,42 @@ public class InterfazController {
         });
     }
     
+    public void filtrarPrecioTf(TableView tabla, Button filtrarBtn, TextField filtroTf) {
+        filtrarBtn.setOnAction(event -> {
+            String textoBuscar = filtroTf.getText().trim().toLowerCase();
+
+            if (!textoBuscar.isEmpty()) {
+                List<Precio> filtradas = precioCtrl.findPrecioEntities().stream()
+                    .filter(p -> p.getIdSala() != null && 
+                                 p.getIdSala().getNombreSala().toLowerCase().contains(textoBuscar))
+                    .collect(Collectors.toList());
+
+                tabla.setItems(FXCollections.observableArrayList(filtradas));
+                filtroTf.setText("");
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Campo vacío");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor, ingrese el nombre de una sala para filtrar.");
+                alert.showAndWait();
+            }
+        });
+    }
+    
+    public void filtrarPrecioCb(TableView tabla, Button filtrarBtn, ComboBox filtrarCb) {
+        Collection<Precio> preciosActualizadas = precioCtrl.findPrecioEntities();
+        ObservableList<Precio> listaPrecios = FXCollections.observableArrayList(preciosActualizadas);
+        filtrarCb.setItems(listaPrecios);
+        
+        filtrarCb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                tabla.setItems(FXCollections.observableArrayList(newVal));
+                
+                Platform.runLater(()-> filtrarCb.setValue(null));
+            }
+        });
+    }
+    
     //Comisiones
     public void cargarComisionDatos(TableView tabla) {
         tabla.getColumns().clear();
@@ -1944,6 +2156,42 @@ public class InterfazController {
                 alert.setTitle("Precaución");
                 alert.setContentText("No hay ninguna sala seleccionada");
                 alert.showAndWait();
+            }
+        });
+    }
+    
+    public void filtrarComisionTf(TableView tabla, Button filtrarBtn, TextField filtroTf) {
+        filtrarBtn.setOnAction(event -> {
+        String nombreBuscar = filtroTf.getText().trim().toLowerCase();
+
+        if (!nombreBuscar.isEmpty()) {
+            List<ComisionTarjetas> filtradas = comisionCtrl.findComisionTarjetasEntities().stream()
+                .filter(s -> s.getTipoTarjeta().toLowerCase().contains(nombreBuscar)).collect(Collectors.toList());
+
+            tabla.setItems(FXCollections.observableArrayList(filtradas));
+            
+            filtroTf.setText("");
+        } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Sin selección");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor seleccione un Tipo de tarjeta para filtrar.");
+                alert.showAndWait();
+        }
+        }); 
+    }
+    
+    public void filtrarComisionCb(TableView tabla, Button filtrarBtn, ComboBox filtrarCb) {
+        Collection<ComisionTarjetas> comisionesActualizadas = comisionCtrl.findComisionTarjetasEntities();
+        ObservableList<ComisionTarjetas> listaComisiones= FXCollections.observableArrayList(comisionesActualizadas);
+        filtrarCb.setItems(listaComisiones);
+        
+        filtrarCb.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                tabla.setItems(FXCollections.observableArrayList(newVal));
+                
+                Platform.runLater(()-> filtrarCb.setValue(null));
             }
         });
     }
