@@ -1,12 +1,12 @@
 Persistencia\Especies.class
 Controladores\SalaJpaController.class
 Controladores\exceptions\PreexistingEntityException.class
+Persistencia\ComisionTarjetas_.class
 Controladores\ComisiontarjetasJpaController.class
 Controladores\InterfazController.class
 Controladores\exceptions\NonexistentEntityException.class
 Controladores\InterfazController$1.class
 com\mycompany\proyecto2\proyecto2\App.class
-Persistencia\Comisiontarjetas_.class
 Persistencia\Sala_.class
 com\mycompany\proyecto2\proyecto2\MuseoInterfazController.class
 Persistencia\Coleccion_.class
@@ -17,8 +17,8 @@ Controladores\EspeciesJpaController.class
 Controladores\TematicaJpaController.class
 Persistencia\Coleccion.class
 Persistencia\Museo_.class
+Persistencia\ComisionTarjetas.class
 Persistencia\Tematica_.class
-Persistencia\Comisiontarjetas.class
 Persistencia\Precio_.class
 Controladores\MuseoJpaController.class
 Persistencia\Tematica.class

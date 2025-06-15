@@ -3,12 +3,12 @@
   <persistence-unit name="MuseoBD" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Persistencia.Especies</class>
-    <class>Persistencia.Comisiontarjetas</class>
     <class>Persistencia.Sala</class>
     <class>Persistencia.Museo</class>
     <class>Persistencia.Tematica</class>
     <class>Persistencia.Coleccion</class>
     <class>Persistencia.Precio</class>
+    <class>Persistencia.ComisionTarjetas</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/museoDb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

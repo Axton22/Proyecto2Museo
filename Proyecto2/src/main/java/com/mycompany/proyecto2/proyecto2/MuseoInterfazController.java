@@ -82,7 +82,7 @@ public class MuseoInterfazController implements Initializable {
         ColeccionJpaController ctrl = new ColeccionJpaController();
         
         
-        interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tvContenido, infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb);
+        interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tematicasBtn, preciosBtn, comisionesBtn, tvContenido, infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb);
 
     }    
     

@@ -19,12 +19,12 @@ import javax.persistence.Table;
  * @author Axton Urbina
  */
 @Entity
-@Table(name = "comisiontarjetas")
+@Table(name = "ComisionTarjetas")
 @NamedQueries({
-    @NamedQuery(name = "Comisiontarjetas.findAll", query = "SELECT c FROM Comisiontarjetas c"),
-    @NamedQuery(name = "Comisiontarjetas.findByTipoTarjeta", query = "SELECT c FROM Comisiontarjetas c WHERE c.tipoTarjeta = :tipoTarjeta"),
-    @NamedQuery(name = "Comisiontarjetas.findByComision", query = "SELECT c FROM Comisiontarjetas c WHERE c.comision = :comision")})
-public class Comisiontarjetas implements Serializable {
+    @NamedQuery(name = "ComisionTarjetas.findAll", query = "SELECT c FROM ComisionTarjetas c"),
+    @NamedQuery(name = "ComisionTarjetas.findByTipoTarjeta", query = "SELECT c FROM ComisionTarjetas c WHERE c.tipoTarjeta = :tipoTarjeta"),
+    @NamedQuery(name = "ComisionTarjetas.findByComision", query = "SELECT c FROM ComisionTarjetas c WHERE c.comision = :comision")})
+public class ComisionTarjetas implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -35,10 +35,10 @@ public class Comisiontarjetas implements Serializable {
     @Column(name = "comision")
     private BigDecimal comision;
 
-    public Comisiontarjetas() {
+    public ComisionTarjetas() {
     }
 
-    public Comisiontarjetas(String tipoTarjeta) {
+    public ComisionTarjetas(String tipoTarjeta) {
         this.tipoTarjeta = tipoTarjeta;
     }
 
@@ -68,10 +68,10 @@ public class Comisiontarjetas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Comisiontarjetas)) {
+        if (!(object instanceof ComisionTarjetas)) {
             return false;
         }
-        Comisiontarjetas other = (Comisiontarjetas) object;
+        ComisionTarjetas other = (ComisionTarjetas) object;
         if ((this.tipoTarjeta == null && other.tipoTarjeta != null) || (this.tipoTarjeta != null && !this.tipoTarjeta.equals(other.tipoTarjeta))) {
             return false;
         }
