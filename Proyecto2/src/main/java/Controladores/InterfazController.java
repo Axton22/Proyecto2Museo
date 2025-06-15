@@ -32,6 +32,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Node;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableRow;
 import javafx.scene.layout.Pane;
@@ -88,9 +90,10 @@ public class InterfazController {
     
     public void manejoInterfaz(Button salaBtn,Button coleccionBtn, Button especiesBtn, Button tematicaBtn, Button precioBtn, Button comisionBtn, TableView<Object> tabla, TextField datosTF,
             Button guardarBtn,Label datosLb, Button insertarBtn, TextField filtroTF, ComboBox filtroCB, Button filtBtn, Button eliminarBtn, 
-            Button editarBtn,  ComboBox<Object> salasCb) {
+            Button editarBtn,  ComboBox<Object> salasCb, Tab tab1, TabPane tpContenidos) {
     
         salaBtn.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -126,6 +129,7 @@ public class InterfazController {
         });
         
         coleccionBtn.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -159,6 +163,7 @@ public class InterfazController {
         });
         
         especiesBtn.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -193,6 +198,7 @@ public class InterfazController {
         });
         
         tematicaBtn.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -228,6 +234,7 @@ public class InterfazController {
         });
         
         precioBtn.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -241,6 +248,7 @@ public class InterfazController {
 
 
             tabla.setRowFactory(tv -> {
+                tpContenidos.getSelectionModel().select(tab1);
                 TableRow<Object> row = new TableRow<>();
                 row.setOnMouseClicked(ev -> {
                     if (ev.getClickCount() == 2 && !row.isEmpty()) {
@@ -262,6 +270,7 @@ public class InterfazController {
         });
         
         comisionBtn.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;

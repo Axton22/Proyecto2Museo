@@ -11,11 +11,14 @@ import Persistencia.Coleccion;
 import Persistencia.Sala;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -55,7 +58,7 @@ public class MuseoInterfazController implements Initializable {
     @FXML
     private Button coleccionBtn;
     @FXML
-    private Pane paneContenidos;
+    private TabPane tpContenidos;
     @FXML
     private ComboBox<Object> infoCb;
     @FXML
@@ -66,6 +69,20 @@ public class MuseoInterfazController implements Initializable {
     private Button preciosBtn;
     @FXML
     private Button comisionesBtn;
+    @FXML
+    private Tab tab1;
+    @FXML
+    private Tab tab2;
+    @FXML
+    private Button btnVender;
+    @FXML
+    private Button btnValidar;
+    @FXML
+    private Tab tab3;
+    @FXML
+    private Label lblTotal;
+    @FXML
+    private Label lblIVA;
 
     /**
      * Initializes the controller class.
@@ -82,8 +99,23 @@ public class MuseoInterfazController implements Initializable {
         ColeccionJpaController ctrl = new ColeccionJpaController();
         
         
-        interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tematicasBtn, preciosBtn, comisionesBtn, tvContenido, infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb);
+        interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tematicasBtn, preciosBtn, comisionesBtn, tvContenido, 
+                infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb, tab1,tpContenidos);
 
     }    
+    
+    @FXML
+    private void cambiarTab1(ActionEvent event){
+        tpContenidos.getSelectionModel().select(tab1);
+    }
+    @FXML
+    private void cambiarTab2(ActionEvent event) {
+        tpContenidos.getSelectionModel().select(tab2);
+    }
+
+    @FXML
+    private void cambiarTab3(ActionEvent event) {
+        tpContenidos.getSelectionModel().select(tab3);
+    }
     
 }

@@ -3,11 +3,15 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -18,54 +22,8 @@
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="933.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2.proyecto2.MuseoInterfazController">
-   <children>
-      <Pane fx:id="paneContenidos" layoutX="237.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="670.0" style="-fx-border-color: Black; -fx-background-color: white; -fx-border-width: 2;">
-         <children>
-            <Label alignment="CENTER" layoutX="222.0" layoutY="14.0" prefHeight="59.0" prefWidth="227.0" text="Mantenimientos">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Label>
-            <TextField fx:id="FiltrarTf" layoutX="81.0" layoutY="123.0" prefHeight="25.0" prefWidth="147.0" />
-            <ComboBox fx:id="FiltrarCb" layoutX="299.0" layoutY="123.0" prefHeight="25.0" prefWidth="147.0" />
-            <Label layoutX="21.0" layoutY="125.0" text="Filtro 1:" />
-            <Label layoutX="246.0" layoutY="127.0" text="Filtro 2:" />
-            <Button fx:id="FiltrarBtn" layoutX="510.0" layoutY="123.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Filtrar">
-               <font>
-                  <Font name="Segoe UI Emoji" size="12.0" />
-               </font>
-            </Button>
-            <TableView fx:id="tvContenido" layoutX="36.0" layoutY="173.0" prefHeight="276.0" prefWidth="599.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-               </columns>
-            </TableView>
-            <Button fx:id="eliminarBtn" layoutX="275.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Eliminar">
-               <font>
-                  <Font name="Segoe UI Emoji" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="editarBtn" layoutX="406.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Editar">
-               <font>
-                  <Font name="Segoe UI Emoji" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="insertarBtn" layoutX="537.0" layoutY="504.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" style="-fx-border-color: Black;" text="Insertar">
-               <font>
-                  <Font name="Segoe UI Emoji" size="12.0" />
-               </font>
-            </Button>
-            <Label fx:id="infoLbl" alignment="CENTER" layoutX="21.0" layoutY="461.0" prefHeight="25.0" prefWidth="385.0" />
-            <TextField fx:id="infoTxt" layoutX="410.0" layoutY="460.0" prefHeight="26.0" prefWidth="149.0" />
-            <Button fx:id="GuardarBtn" layoutX="573.0" layoutY="460.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" style="-fx-border-color: Black;" text="Guardar">
-               <font>
-                  <Font name="Segoe UI Emoji" size="12.0" />
-               </font>
-            </Button>
-            <ComboBox fx:id="infoCb" layoutX="80.0" layoutY="504.0" prefHeight="26.0" prefWidth="150.0" />
-         </children>
-      </Pane>
+    
+    <children>
       <Pane layoutX="14.0" layoutY="20.0" prefHeight="555.0" prefWidth="214.0" style="-fx-border-color: black; -fx-border-width: 2;">
          <children>
             <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="2.0" fill="WHITE" height="191.0" layoutX="1.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="212.0" />
@@ -91,12 +49,12 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button fx:id="SalaBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="219.0" text="Salas" />
-                                    <Button fx:id="coleccionBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Colecciones" GridPane.rowIndex="1" />
-                                    <Button fx:id="especiesBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
-                                    <Button fx:id="tematicasBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
-                                    <Button fx:id="preciosBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
-                                    <Button fx:id="comisionesBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
+                                    <Button fx:id="SalaBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="219.0" text="Salas" />
+                                    <Button fx:id="coleccionBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="221.0" text="Colecciones" GridPane.rowIndex="1" />
+                                    <Button fx:id="especiesBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
+                                    <Button fx:id="tematicasBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
+                                    <Button fx:id="preciosBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
+                                    <Button fx:id="comisionesBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
                                  </children>
                               </GridPane>
                            </children>
@@ -116,8 +74,8 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Vender entrada" />
-                                    <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Validar entrada" GridPane.rowIndex="1" />
+                                    <Button fx:id="btnVender" mnemonicParsing="false" onAction="#cambiarTab2" prefHeight="22.0" prefWidth="215.0" text="Vender entrada" />
+                                    <Button fx:id="btnValidar" mnemonicParsing="false" onAction="#cambiarTab3" prefHeight="22.0" prefWidth="215.0" text="Validar entrada" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children>
@@ -171,5 +129,144 @@
             </Label>
          </children>
       </Pane>
+      <TabPane fx:id="tpContenidos" layoutX="254.0" layoutY="20.0" prefHeight="555.0" prefWidth="658.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tab1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="233.0" layoutY="14.0" text="Mantenimientos">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="52.0" layoutY="97.0" text="Filtro 1" />
+                        <TextField fx:id="FiltrarTf" layoutX="117.0" layoutY="93.0" />
+                        <Label layoutX="287.0" layoutY="97.0" text="Label" />
+                        <Label fx:id="infoLbl" layoutX="55.0" layoutY="424.0" prefHeight="30.0" prefWidth="265.0" />
+                        <ComboBox fx:id="FiltrarCb" layoutX="329.0" layoutY="93.0" prefWidth="150.0" />
+                        <Button fx:id="FiltrarBtn" layoutX="514.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-border-color: black;" text="Filtrar" />
+                        <TableView fx:id="tvContenido" layoutX="52.0" layoutY="132.0" prefHeight="259.0" prefWidth="538.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="infoTxt" layoutX="330.0" layoutY="424.0" prefHeight="30.0" prefWidth="149.0" />
+                        <Button fx:id="GuardarBtn" layoutX="492.0" layoutY="425.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Guardar" />
+                        <Button fx:id="eliminarBtn" layoutX="330.0" layoutY="468.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Eliminar" />
+                        <Button fx:id="editarBtn" layoutX="400.0" layoutY="468.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Editar" />
+                        <Button fx:id="insertarBtn" layoutX="459.0" layoutY="468.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Insertar" />
+                        <ComboBox fx:id="infoCb" layoutX="124.0" layoutY="468.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tab2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="43.0" layoutY="75.0" prefHeight="17.0" prefWidth="112.0" text="Nombre Visitante" />
+                        <TextField layoutX="148.0" layoutY="71.0" />
+                        <TextField layoutX="408.0" layoutY="71.0" />
+                        <Label layoutX="328.0" layoutY="75.0" prefHeight="17.0" prefWidth="75.0" text="Tipo Tarjeta" />
+                        <Label layoutX="43.0" layoutY="113.0" prefHeight="19.0" prefWidth="59.0" text="Entrada a">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="43.0" layoutY="143.0" text="Museo:">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox layoutX="106.0" layoutY="141.0" prefWidth="150.0" />
+                        <Label layoutX="268.0" layoutY="143.0" prefHeight="17.0" prefWidth="35.0" text="Dias">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <DatePicker layoutX="311.0" layoutY="141.0" />
+                        <Button layoutX="521.0" layoutY="140.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Agregar" />
+                        <TableView fx:id="tvContenidoVender" layoutX="43.0" layoutY="182.0" prefHeight="200.0" prefWidth="544.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="47.0" layoutY="406.0" prefHeight="28.0" prefWidth="96.0" text="Subtotal:">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="46.0" layoutY="434.0" prefHeight="28.0" prefWidth="112.0" text="I.V.A (13%):">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSubtotal" layoutX="160.0" layoutY="410.0" prefHeight="21.0" prefWidth="112.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblIVA" layoutX="161.0" layoutY="440.0" prefHeight="21.0" prefWidth="112.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="335.0" layoutY="407.0" prefHeight="28.0" prefWidth="126.0" text="Total a pagar">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTotal" layoutX="468.0" layoutY="411.0" prefHeight="21.0" prefWidth="100.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="492.0" layoutY="462.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Vender" />
+                        <Label layoutX="244.0" layoutY="14.0" text="Vender Entrada">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tab3">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="239.0" layoutY="14.0" text="Validar Entrada">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="156.0" layoutY="476.0" prefHeight="36.0" prefWidth="347.0" text="Disfrute del arte y la historia">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tvContenidoValidar" layoutX="108.0" layoutY="328.0" prefHeight="148.0" prefWidth="478.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="108.0" layoutY="301.0" prefHeight="17.0" prefWidth="220.0" text="Hoy puede ingresar a las siguientes salas" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="230.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="562.0" layoutY="63.0" prefHeight="20.0" prefWidth="42.0" text="Fecha">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="559.0" layoutY="83.0" prefHeight="17.0" prefWidth="55.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="45.0" layoutX="254.0" layoutY="8.0" stroke="WHITE" strokeType="INSIDE" width="658.0" />
    </children>
+   
 </Pane>
