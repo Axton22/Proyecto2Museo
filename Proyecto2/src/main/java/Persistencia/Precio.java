@@ -107,7 +107,7 @@ public class Precio implements Serializable {
 
     @Override
     public String toString() {
-        return "Persistencia.Precio[ id=" + id + " ]";
+        return String.valueOf(getIdSala());
     }
     
 }

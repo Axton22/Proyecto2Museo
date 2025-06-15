@@ -80,7 +80,7 @@ public class ComisionTarjetas implements Serializable {
 
     @Override
     public String toString() {
-        return "Persistencia.Comisiontarjetas[ tipoTarjeta=" + tipoTarjeta + " ]";
+        return tipoTarjeta;
     }
     
 }

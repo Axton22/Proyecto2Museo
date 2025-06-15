@@ -123,7 +123,7 @@ public class Tematica implements Serializable {
 
     @Override
     public String toString() {
-        return "Persistencia.Tematica[ id=" + id + " ]";
+        return nombreTematica;
     }
     
 }

@@ -167,7 +167,7 @@ public class Especies implements Serializable {
 
     @Override
     public String toString() {
-        return "Persistencia.Especies[ id=" + id + " ]";
+        return nombreComun;
     }
     
 }
