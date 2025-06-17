@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.ImageView?>
@@ -49,12 +50,12 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button fx:id="SalaBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="219.0" text="Salas" />
-                                    <Button fx:id="coleccionBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="221.0" text="Colecciones" GridPane.rowIndex="1" />
-                                    <Button fx:id="especiesBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
-                                    <Button fx:id="tematicasBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
-                                    <Button fx:id="preciosBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
-                                    <Button fx:id="comisionesBtn" mnemonicParsing="false" onAction="#cambiarTab1" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
+                                    <Button fx:id="SalaBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="219.0" text="Salas" />
+                                    <Button fx:id="coleccionBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="221.0" text="Colecciones" GridPane.rowIndex="1" />
+                                    <Button fx:id="especiesBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="230.0" text="Especies" GridPane.rowIndex="2" />
+                                    <Button fx:id="tematicasBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Temáticas" GridPane.rowIndex="3" />
+                                    <Button fx:id="preciosBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="228.0" text="Precios" GridPane.rowIndex="4" />
+                                    <Button fx:id="comisionesBtn" mnemonicParsing="false" prefHeight="25.0" prefWidth="220.0" text="Comisiones" GridPane.rowIndex="5" />
                                  </children>
                               </GridPane>
                            </children>
@@ -74,8 +75,8 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button fx:id="btnVender" mnemonicParsing="false" onAction="#cambiarTab2" prefHeight="22.0" prefWidth="215.0" text="Vender entrada" />
-                                    <Button fx:id="btnValidar" mnemonicParsing="false" onAction="#cambiarTab3" prefHeight="22.0" prefWidth="215.0" text="Validar entrada" GridPane.rowIndex="1" />
+                                    <Button fx:id="btnVender" mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Vender entrada" />
+                                    <Button fx:id="btnValidar" mnemonicParsing="false" prefHeight="22.0" prefWidth="215.0" text="Validar entrada" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                            </children>
@@ -94,7 +95,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="211.0" text="Ver valoraciones" />
+                                    <Button fx:id="btnValoraciones" mnemonicParsing="false" prefHeight="25.0" prefWidth="211.0" text="Ver valoraciones" />
                                  </children>
                               </GridPane>
                            </children>
@@ -113,7 +114,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0" text="Ver reportes" />
+                                    <Button fx:id="btnReportes" mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0" text="Ver reportes" />
                                  </children>
                               </GridPane>
                            </children>
@@ -131,15 +132,10 @@
       </Pane>
       <TabPane fx:id="tpContenidos" layoutX="254.0" layoutY="20.0" prefHeight="555.0" prefWidth="658.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="tab1">
+          <Tab fx:id="tabMantenimiento">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="233.0" layoutY="14.0" text="Mantenimientos">
-                           <font>
-                              <Font name="System Bold" size="25.0" />
-                           </font>
-                        </Label>
                         <Label layoutX="52.0" layoutY="97.0" text="Filtro 1" />
                         <TextField fx:id="FiltrarTf" layoutX="117.0" layoutY="93.0" />
                         <Label layoutX="287.0" layoutY="97.0" text="Label" />
@@ -158,11 +154,16 @@
                         <Button fx:id="editarBtn" layoutX="400.0" layoutY="468.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Editar" />
                         <Button fx:id="insertarBtn" layoutX="459.0" layoutY="468.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Insertar" />
                         <ComboBox fx:id="infoCb" layoutX="124.0" layoutY="468.0" prefWidth="150.0" />
+                        <Label layoutX="234.0" layoutY="17.0" text="Mantenimientos">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="tab2">
+          <Tab fx:id="tabVender">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -233,7 +234,7 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="tab3">
+            <Tab fx:id="tabValidar">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -264,9 +265,50 @@
                      </children></AnchorPane>
               </content>
             </Tab>
+            <Tab fx:id="tabValoracion">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="214.0" layoutY="14.0" text="Valoracion de Salas">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="558.0" layoutY="109.0" text="Fecha">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="281.0" layoutX="37.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Label layoutX="37.0" layoutY="92.0" text="Especies/Tematica">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Line endX="180.0" endY="265.0" layoutX="57.0" layoutY="138.0" startX="-20.0" startY="-16.0" />
+                        <Line endX="130.0" endY="-39.0" layoutX="107.0" layoutY="161.0" startX="-70.0" startY="242.0" />
+                        <Label layoutX="247.0" layoutY="140.0" prefHeight="17.0" prefWidth="48.0" text="Nombre:" />
+                        <Label layoutX="245.0" layoutY="164.0" text="Coleccion" />
+                        <Label layoutX="247.0" layoutY="189.0" text="Tipo" />
+                        <Label fx:id="lblNombreValoracion" layoutX="314.0" layoutY="140.0" prefHeight="17.0" prefWidth="106.0" />
+                        <Label fx:id="lblColeccionValoracion" layoutX="315.0" layoutY="164.0" prefHeight="17.0" prefWidth="89.0" />
+                        <Label fx:id="lblTipoValoracion" layoutX="315.0" layoutY="189.0" prefHeight="17.0" prefWidth="87.0" />
+                        <Label layoutX="247.0" layoutY="254.0" text="Detalle" />
+                        <Label fx:id="lblDetalleValoracion" layoutX="300.0" layoutY="254.0" prefHeight="17.0" prefWidth="102.0" />
+                        <Label layoutX="247.0" layoutY="413.0" text="Desea agregar una valoracion? " />
+                        <TextArea layoutX="247.0" layoutY="438.0" prefHeight="77.0" prefWidth="306.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabReportes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="45.0" layoutX="254.0" layoutY="8.0" stroke="WHITE" strokeType="INSIDE" width="658.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="254.0" layoutY="19.0" stroke="WHITE" strokeType="INSIDE" width="658.0" />
    </children>
    
 </Pane>

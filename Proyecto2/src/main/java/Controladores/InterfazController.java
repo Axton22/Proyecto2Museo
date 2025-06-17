@@ -90,12 +90,14 @@ public class InterfazController {
         this.bandera = bandera;
     }
     
-    public void manejoInterfaz(Button salaBtn,Button coleccionBtn, Button especiesBtn, Button tematicaBtn, Button precioBtn, Button comisionBtn, TableView<Object> tabla, TextField datosTF,
-            Button guardarBtn,Label datosLb, Button insertarBtn, TextField filtroTF, ComboBox filtroCB, Button filtBtn, Button eliminarBtn, 
-            Button editarBtn,  ComboBox<Object> salasCb, Tab tab1, TabPane tpContenidos) {
+    public void manejoInterfaz(Button salaBtn,Button coleccionBtn, Button especiesBtn, Button tematicaBtn, Button precioBtn, 
+            Button comisionBtn, TableView<Object> tabla, TextField datosTF,Button guardarBtn,Label datosLb, Button insertarBtn, 
+            TextField filtroTF, ComboBox filtroCB, Button filtBtn, Button eliminarBtn, Button editarBtn,  ComboBox<Object> salasCb, 
+            Tab tabMantenimientos,Tab tabVender, Tab tabValidar, Tab tabValoracion, Tab tabReportes, TabPane tpContenidos, Button btnValorar,
+            Button btnVender,Button btnVerificar, Button btnReportes) {
     
         salaBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tab1);
+            tpContenidos.getSelectionModel().select(tabMantenimientos);
             sala = null;
             coleccion = null;
             especies = null;
@@ -135,7 +137,7 @@ public class InterfazController {
         });
         
         coleccionBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tab1);
+            tpContenidos.getSelectionModel().select(tabMantenimientos);
             sala = null;
             coleccion = null;
             especies = null;
@@ -175,7 +177,7 @@ public class InterfazController {
         });
         
         especiesBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tab1);
+            tpContenidos.getSelectionModel().select(tabMantenimientos);
             sala = null;
             coleccion = null;
             especies = null;
@@ -214,7 +216,7 @@ public class InterfazController {
         });
         
         tematicaBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tab1);
+            tpContenidos.getSelectionModel().select(tabMantenimientos);
             sala = null;
             coleccion = null;
             especies = null;
@@ -254,7 +256,7 @@ public class InterfazController {
         });
         
         precioBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tab1);
+            tpContenidos.getSelectionModel().select(tabMantenimientos);
             sala = null;
             coleccion = null;
             especies = null;
@@ -268,7 +270,7 @@ public class InterfazController {
 
 
             tabla.setRowFactory(tv -> {
-                tpContenidos.getSelectionModel().select(tab1);
+                tpContenidos.getSelectionModel().select(tabMantenimientos);
                 TableRow<Object> row = new TableRow<>();
                 row.setOnMouseClicked(ev -> {
                     if (ev.getClickCount() == 2 && !row.isEmpty()) {
@@ -294,7 +296,7 @@ public class InterfazController {
         });
         
         comisionBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tab1);
+            tpContenidos.getSelectionModel().select(tabMantenimientos);
             sala = null;
             coleccion = null;
             especies = null;
@@ -320,7 +322,7 @@ public class InterfazController {
                 });
                 return row;
             });
-
+            
             InsertarComision(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn);
             
             editarComision(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb);
@@ -331,6 +333,27 @@ public class InterfazController {
             
             filtrarComisionCb(tabla, filtBtn, filtroCB);
         });
+        
+        btnVender.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tabVender);//cambia a la vista de vender
+            
+            });
+        
+        btnVerificar.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tabValidar);
+            
+        });
+        
+        btnValorar.setOnAction(even -> {
+            tpContenidos.getSelectionModel().select(tabValoracion);
+            
+        });
+        
+        btnReportes.setOnAction(event -> {
+            tpContenidos.getSelectionModel().select(tabReportes);
+        });
+        
+        
     }
     
     

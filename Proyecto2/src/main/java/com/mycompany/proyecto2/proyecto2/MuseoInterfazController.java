@@ -70,25 +70,50 @@ public class MuseoInterfazController implements Initializable {
     @FXML
     private Button comisionesBtn;
     @FXML
-    private Tab tab1;
-    @FXML
-    private Tab tab2;
-    @FXML
     private Button btnVender;
     @FXML
     private Button btnValidar;
     @FXML
-    private Tab tab3;
-    @FXML
     private Label lblTotal;
     @FXML
     private Label lblIVA;
+    @FXML
+    private Button btnValoraciones;
+    @FXML
+    private TableView<Object> tvContenidoVender;
+    @FXML
+    private Label lblSubtotal;
+    @FXML
+    private TableView<Object> tvContenidoValidar;
+    @FXML
+    private Label lblNombreValoracion;
+    @FXML
+    private Label lblColeccionValoracion;
+    @FXML
+    private Label lblTipoValoracion;
+    @FXML
+    private Label lblDetalleValoracion;
+    @FXML
+    private Tab tabMantenimiento;
+    @FXML
+    private Tab tabVender;
+    @FXML
+    private Tab tabValidar;
+    @FXML
+    private Tab tabValoracion;
+    @FXML
+    private Tab tabReportes;
+    @FXML
+    private Button btnReportes;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        tvContenido.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tvContenidoValidar.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tvContenidoVender.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         infoLbl.setVisible(false);
         infoTxt.setVisible(false);
         GuardarBtn.setVisible(false);
@@ -100,22 +125,12 @@ public class MuseoInterfazController implements Initializable {
         
         
         interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tematicasBtn, preciosBtn, comisionesBtn, tvContenido, 
-                infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb, tab1,tpContenidos);
+                infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb, 
+                tabMantenimiento, tabVender,tabValidar,tabValoracion,tabReportes, tpContenidos,btnValidar, btnVender, btnValoraciones, btnReportes);
 
     }    
-    
-    @FXML
-    private void cambiarTab1(ActionEvent event){
-        tpContenidos.getSelectionModel().select(tab1);
-    }
-    @FXML
-    private void cambiarTab2(ActionEvent event) {
-        tpContenidos.getSelectionModel().select(tab2);
-    }
 
-    @FXML
-    private void cambiarTab3(ActionEvent event) {
-        tpContenidos.getSelectionModel().select(tab3);
-    }
+    
+    
     
 }
