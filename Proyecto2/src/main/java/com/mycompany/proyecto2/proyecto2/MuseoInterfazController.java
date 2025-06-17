@@ -4,10 +4,13 @@
  */
 package com.mycompany.proyecto2.proyecto2;
 
+import Clases.ManejoEntradas;
 import Controladores.ColeccionJpaController;
-import Controladores.InterfazController;
+import Clases.ManejoMantenimiento;
 import Controladores.SalaJpaController;
 import Persistencia.Coleccion;
+import Persistencia.ComisionTarjetas;
+import Persistencia.Precio;
 import Persistencia.Sala;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -83,6 +87,24 @@ public class MuseoInterfazController implements Initializable {
     private Label lblTotal;
     @FXML
     private Label lblIVA;
+    @FXML
+    private TextField nombreVisitanteTf;
+    @FXML
+    private ComboBox<Precio> salasCb;
+    @FXML
+    private DatePicker diasDp;
+    @FXML
+    private Button agregarBtn;
+    @FXML
+    private TableView<?> tvContenidoVender;
+    @FXML
+    private Label lblSubtotal;
+    @FXML
+    private Button venderBtn;
+    @FXML
+    private TableView<?> tvContenidoValidar;
+    @FXML
+    private ComboBox<ComisionTarjetas> tipoTarjetaCb;
 
     /**
      * Initializes the controller class.
@@ -94,13 +116,18 @@ public class MuseoInterfazController implements Initializable {
         GuardarBtn.setVisible(false);
         infoCb.setVisible(false);
 
-        InterfazController interfaz = new InterfazController();
+        ManejoEntradas entradas = new ManejoEntradas();
+        ManejoMantenimiento interfaz = new ManejoMantenimiento();
         
         ColeccionJpaController ctrl = new ColeccionJpaController();
         
         
         interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tematicasBtn, preciosBtn, comisionesBtn, tvContenido, 
-                infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb, tab1,tpContenidos);
+                infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, 
+                infoCb, tab1,tpContenidos);
+        
+        entradas.ventaEntradas(nombreVisitanteTf, tipoTarjetaCb, salasCb, diasDp, agregarBtn, lblSubtotal, lblIVA,
+                lblTotal, tvContenidoVender);
 
     }    
     
