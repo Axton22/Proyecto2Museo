@@ -1,10 +1,13 @@
 Persistencia\Especies.class
+Clases\ManejoMantenimiento$1.class
 Controladores\UsuariosJpaController.class
 Controladores\SalaJpaController.class
+Clases\QRManipulador.class
 Controladores\exceptions\PreexistingEntityException.class
 Persistencia\ComisionTarjetas_.class
 Controladores\ComisiontarjetasJpaController.class
 Controladores\InterfazController.class
+Clases\ManejoMantenimiento.class
 Persistencia\Usuarios.class
 Controladores\exceptions\NonexistentEntityException.class
 Controladores\InterfazController$1.class
@@ -20,6 +23,7 @@ Controladores\TematicaJpaController.class
 Persistencia\Coleccion.class
 Persistencia\Museo_.class
 Persistencia\ComisionTarjetas.class
+Clases\ManejoEntradas.class
 Persistencia\Tematica_.class
 Persistencia\Precio_.class
 Controladores\MuseoJpaController.class

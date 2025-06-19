@@ -4,25 +4,37 @@
  */
 package com.mycompany.proyecto2.proyecto2;
 
+import Clases.ManejoEntradas;
 import Controladores.ColeccionJpaController;
-import Controladores.InterfazController;
+import Clases.ManejoMantenimiento;
 import Controladores.SalaJpaController;
 import Persistencia.Coleccion;
+import Persistencia.ComisionTarjetas;
+import Persistencia.Precio;
 import Persistencia.Sala;
+import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -80,7 +92,7 @@ public class MuseoInterfazController implements Initializable {
     @FXML
     private Button btnValoraciones;
     @FXML
-    private TableView<Object> tvContenidoVender;
+    private TableView<ManejoEntradas> tvContenidoVender;
     @FXML
     private Label lblSubtotal;
     @FXML
@@ -105,7 +117,34 @@ public class MuseoInterfazController implements Initializable {
     private Tab tabReportes;
     @FXML
     private Button btnReportes;
+    @FXML
+    private TextField nombreVisitanteTf;
+    @FXML
+    private ComboBox<Precio> salasCb;
+    @FXML
+    private DatePicker diasDp;
+    @FXML
+    private Button agregarBtn;
+    
+    @FXML
+    private Button venderBtn;
+    
+    @FXML
+    private ComboBox<ComisionTarjetas> tipoTarjetaCb;
+    @FXML
+    private ImageView imgQR;
+    @FXML
+    private Label lblFecha;
+    @FXML
+    private TextField txtImageName;
+    @FXML
+    private Button btnSearchQR;
+    
+    private File selectedFile;
+    
+    private String contentQR;
 
+    private ManejoEntradas entradas = new ManejoEntradas();
     /**
      * Initializes the controller class.
      */
@@ -119,17 +158,108 @@ public class MuseoInterfazController implements Initializable {
         GuardarBtn.setVisible(false);
         infoCb.setVisible(false);
 
-        InterfazController interfaz = new InterfazController();
+        
+        ManejoMantenimiento interfaz = new ManejoMantenimiento();
         
         ColeccionJpaController ctrl = new ColeccionJpaController();
         
         
         interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tematicasBtn, preciosBtn, comisionesBtn, tvContenido, 
                 infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb, 
-                tabMantenimiento, tabVender,tabValidar,tabValoracion,tabReportes, tpContenidos,btnValidar, btnVender, btnValoraciones, btnReportes);
+                tabMantenimiento, tabVender, tabValidar, tabValoracion, tabReportes, tpContenidos, btnValoraciones, btnVender, 
+                btnValidar, btnReportes);
+        
+        entradas.ventaEntradas(nombreVisitanteTf, tipoTarjetaCb, salasCb, diasDp, agregarBtn,venderBtn, lblSubtotal, lblIVA,
+                lblTotal, tvContenidoVender);
+        
+        
+        
 
     }    
+    
+    @FXML
+    private void cambiarVender(ActionEvent event) {
+        tpContenidos.getSelectionModel().select(tabVender);
+    }
 
+    @FXML
+    private void cambiarValidar(ActionEvent event) {
+        tpContenidos.getSelectionModel().select(tabValidar);
+    }
+    @FXML
+    private void cambiarValoracion(ActionEvent event){
+        tpContenidos.getSelectionModel().select(tabValoracion);
+    }
+    @FXML
+    private void cambiarReportes(ActionEvent event) {
+        tpContenidos.getSelectionModel().select(tabReportes);
+    }
+
+    @FXML
+    private void filePicker(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccione el codigo QR");
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.jpg")
+        );
+        
+        selectedFile = fileChooser.showOpenDialog(null);
+        
+        if (selectedFile != null) {
+            
+            txtImageName.setText(selectedFile.getName());
+            
+            try {
+                
+                Image image = new Image(selectedFile.toURI().toString());
+                imgQR.setImage(image);
+            
+            } catch (Exception error) {
+                    error.printStackTrace();
+                }
+        }
+    }
+    
+    @FXML
+    private void validarEntrada(ActionEvent event) {
+    }
+
+    @FXML
+    public void generarTicket(ActionEvent event) {
+        List<String> unionArray = new ArrayList<>();
+        
+        String salas = String.join(",", columnaSala());
+        String dias = String.join(",", columDia());
+        
+        unionArray.add(salas);
+        unionArray.add(dias);
+        
+        String contenidoEntrada = String.join("|", unionArray);
+        
+        System.out.println(contenidoEntrada);
+        
+        
+    }
+    
+    public List<String> columnaSala(){
+        return tvContenido.getItems()
+                .stream()
+                .map(obj -> ((ManejoEntradas)obj).getNombreSala())
+                .collect(Collectors.toList());
+                
+    }
+    
+    public List<String> columDia(){
+        return tvContenido.getItems()
+                .stream()
+                .map(obj -> ((ManejoEntradas)obj).getDia())
+                .collect(Collectors.toList());
+                
+    }
+    
+
+
+    
     
     
     

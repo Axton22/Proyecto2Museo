@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controladores;
+package Clases;
 import Persistencia.Sala;
 import java.util.Collection;
 import javafx.collections.FXCollections;
@@ -16,6 +16,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import Controladores.SalaJpaController;
 import Controladores.ColeccionJpaController;
+import Controladores.ColeccionJpaController;
+import Controladores.ComisiontarjetasJpaController;
+import Controladores.EspeciesJpaController;
+import Controladores.PrecioJpaController;
+import Controladores.SalaJpaController;
+import Controladores.TematicaJpaController;
 import Persistencia.Coleccion;
 import Persistencia.ComisionTarjetas;
 import Persistencia.Especies;
@@ -44,7 +50,7 @@ import javafx.scene.layout.Pane;
  *
  * @author Axton Urbina
  */
-public class InterfazController {
+public class ManejoMantenimiento {
     private Sala sala;
     private SalaJpaController salaCtrl;
     private int cont;
@@ -62,7 +68,7 @@ public class InterfazController {
     
             
     
-    public InterfazController() {
+    public ManejoMantenimiento() {
         salaCtrl = new SalaJpaController();
         colecCtrl = new ColeccionJpaController();
         especiesCtrl = new EspeciesJpaController();
@@ -90,17 +96,10 @@ public class InterfazController {
         this.bandera = bandera;
     }
     
-    public void manejoInterfaz(Button salaBtn,Button coleccionBtn, Button especiesBtn, 
-            Button tematicaBtn, Button precioBtn, Button comisionBtn,  
-            TableView<Object> tabla, TextField datosTF,Button guardarBtn,Label datosLb, 
-            Button insertarBtn, TextField filtroTF, ComboBox filtroCB, Button filtBtn, 
-            Button eliminarBtn, Button editarBtn,  ComboBox<Object> infoCb,
-            Tab tabMantenimientos,Tab tabVender, Tab tabValidar, Tab tabValoracion, 
-            Tab tabReportes, TabPane tpContenidos, Button btnValorar,
-            Button btnVender,Button btnVerificar, Button btnReportes) {
+    public void manejoInterfaz(Button salaBtn, Button coleccionBtn, Button especiesBtn, Button tematicaBtn, Button precioBtn, Button comisionBtn, TableView<Object> tabla, TextField datosTF, Button guardarBtn, Label datosLb, Button insertarBtn, TextField filtroTF, ComboBox filtroCB, Button filtBtn, Button eliminarBtn, Button editarBtn, ComboBox<Object> salasCb, Tab tab1, Tab tabVender, Tab tabValidar, Tab tabValoracion, Tab tabReportes, TabPane tpContenidos, Button btnValoraciones, Button btnVender, Button btnValidar, Button btnReportes) {
     
         salaBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabMantenimientos);
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -140,7 +139,7 @@ public class InterfazController {
         });
         
         coleccionBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabMantenimientos);
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -166,9 +165,9 @@ public class InterfazController {
                 return row;
             });
             
-        insertarColeccion(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, infoCb);
+        insertarColeccion(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, salasCb);
         
-        editarColeccion(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, infoCb);
+        editarColeccion(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
         
         eliminarColeccion(eliminarBtn);
         
@@ -180,7 +179,7 @@ public class InterfazController {
         });
         
         especiesBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabMantenimientos);
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -207,9 +206,9 @@ public class InterfazController {
                 return row;
             });
 
-            insertarEspecies(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, infoCb);
+            insertarEspecies(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, salasCb);
             
-            editarEspecies(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, infoCb);
+            editarEspecies(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
             
             eliminarEspecies(eliminarBtn);
             
@@ -219,7 +218,7 @@ public class InterfazController {
         });
         
         tematicaBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabMantenimientos);
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -246,9 +245,9 @@ public class InterfazController {
                 return row;
             });
 
-            insertarTematica(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, infoCb);
+            insertarTematica(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, salasCb);
             
-            editarTematica(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, infoCb);
+            editarTematica(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
             
             eliminarTematica(eliminarBtn);
             
@@ -259,7 +258,7 @@ public class InterfazController {
         });
         
         precioBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabMantenimientos);
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -273,7 +272,7 @@ public class InterfazController {
 
 
             tabla.setRowFactory(tv -> {
-                tpContenidos.getSelectionModel().select(tabMantenimientos);
+                tpContenidos.getSelectionModel().select(tab1);
                 TableRow<Object> row = new TableRow<>();
                 row.setOnMouseClicked(ev -> {
                     if (ev.getClickCount() == 2 && !row.isEmpty()) {
@@ -287,9 +286,9 @@ public class InterfazController {
                 return row;
             });
 
-            InsertarPrecio(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, infoCb);
+            InsertarPrecio(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn, salasCb);
 
-            editarPerecio(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, infoCb);
+            editarPerecio(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb, salasCb);
             
             eliminarPrecio(eliminarBtn);
             
@@ -299,7 +298,7 @@ public class InterfazController {
         });
         
         comisionBtn.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabMantenimientos);
+            tpContenidos.getSelectionModel().select(tab1);
             sala = null;
             coleccion = null;
             especies = null;
@@ -325,7 +324,7 @@ public class InterfazController {
                 });
                 return row;
             });
-            
+
             InsertarComision(datosTF, guardarBtn, datosLb, insertarBtn, filtroTF, filtroCB, filtBtn, eliminarBtn, editarBtn);
             
             editarComision(editarBtn, filtBtn, eliminarBtn, guardarBtn, insertarBtn, filtroTF, filtroCB, datosTF, datosLb);
@@ -336,27 +335,6 @@ public class InterfazController {
             
             filtrarComisionCb(tabla, filtBtn, filtroCB);
         });
-        
-        btnVender.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabVender);//cambia a la vista de vender
-            
-            });
-        
-        btnVerificar.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabValidar);
-            
-        });
-        
-        btnValorar.setOnAction(even -> {
-            tpContenidos.getSelectionModel().select(tabValoracion);
-            
-        });
-        
-        btnReportes.setOnAction(event -> {
-            tpContenidos.getSelectionModel().select(tabReportes);
-        });
-        
-        
     }
     
     
