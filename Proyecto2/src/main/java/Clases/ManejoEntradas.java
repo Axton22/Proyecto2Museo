@@ -156,8 +156,8 @@ public class ManejoEntradas {
 
     //Funcionamiento para la venta de entradas
     public void ventaEntradas(TextField nombreVisitanteTf, ComboBox <ComisionTarjetas> tipoTarjetaCb, 
-            ComboBox<Precio> salasCb, DatePicker diaDp, Button agregarBtn,Button btnVender, Label subTotalLbl, Label ivaLbl, Label totalLbl,
-            TableView<ManejoEntradas> tabla) {
+            ComboBox<Precio> salasCb, DatePicker diaDp, Button agregarBtn,Button btnVender, Label subTotalLbl, 
+            Label ivaLbl, Label totalLbl,TableView<ManejoEntradas> tabla) {
         
         //Muestra las Salas disponibles en el ComboBox de Salas
         Collection<Precio> preciosActualizadas = precioCtrl.findPrecioEntities();

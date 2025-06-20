@@ -62,7 +62,7 @@ public class QRManipulador {
             BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(matrix);
             
             //mete el QR en un archivo jpg y lo guarda en la carpeta QR de el proyecto, aunque no este creada este la crea
-            archivo.getParentFile().mkdir();
+            archivo.getParentFile().mkdirs();
             
             ImageIO.write(bufferedImage, "jpg", archivo);
             
