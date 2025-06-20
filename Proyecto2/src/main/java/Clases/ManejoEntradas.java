@@ -55,7 +55,7 @@ public class ManejoEntradas {
     private PrecioJpaController precioCtrl;
     private LocalDate diaSeleccionado;
     private ObservableList<ManejoEntradas> listaEntradas = FXCollections.observableArrayList();
-
+    private QRManipulador qrCode = new QRManipulador();
     
     public ManejoEntradas(){
         comisionCtrl = new ComisiontarjetasJpaController();
@@ -220,7 +220,7 @@ public class ManejoEntradas {
         cargarDatos(tabla);
         
         
-        
+        //crea el qr con los datos que hay en la tabla (string)
         btnVender.setOnAction(e -> {
             
             List<String> union = new ArrayList<>();
@@ -251,6 +251,8 @@ public class ManejoEntradas {
             String contenidoQR = String.join("|", union);
             
             System.out.println(contenidoQR);
+            
+            qrCode.generarQR(contenidoQR);  
             
         });
     }

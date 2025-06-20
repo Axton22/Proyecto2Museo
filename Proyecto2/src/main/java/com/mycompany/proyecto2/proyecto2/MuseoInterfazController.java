@@ -7,6 +7,7 @@ package com.mycompany.proyecto2.proyecto2;
 import Clases.ManejoEntradas;
 import Controladores.ColeccionJpaController;
 import Clases.ManejoMantenimiento;
+import Clases.QRManipulador;
 import Controladores.SalaJpaController;
 import Persistencia.Coleccion;
 import Persistencia.ComisionTarjetas;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,6 +31,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -96,7 +100,7 @@ public class MuseoInterfazController implements Initializable {
     @FXML
     private Label lblSubtotal;
     @FXML
-    private TableView<Object> tvContenidoValidar;
+    private TableView<String[]> tvContenidoValidar;
     @FXML
     private Label lblNombreValoracion;
     @FXML
@@ -145,6 +149,8 @@ public class MuseoInterfazController implements Initializable {
     private String contentQR;
 
     private ManejoEntradas entradas = new ManejoEntradas();
+    
+    private QRManipulador qrCode = new QRManipulador();
     /**
      * Initializes the controller class.
      */
@@ -222,40 +228,36 @@ public class MuseoInterfazController implements Initializable {
     
     @FXML
     private void validarEntrada(ActionEvent event) {
+        
+        String qrLeido = qrCode.leerQR(selectedFile);
+        
+        System.out.println(qrLeido);
+        
+        String [] division = qrLeido.split("\\|");
+        
+        String[] salas = division[0].split(",");
+        String[] dias = division[1].split(",");
+        
+        tvContenidoValidar.getColumns().clear();
+        
+        TableColumn salasColumn = new TableColumn("Salas");
+        TableColumn diaColumn = new TableColumn("Dia");
+        
+        ObservableList<String[]> datos = FXCollections.observableArrayList();
+        
+        for (int i = 0; i < salas.length; i++) {
+            String sala = i < salas.length ? salas[i] : "";
+            String dia = i < dias.length ? dias[i] : "";
+            datos.add(new String[]{sala,dia});
+        }
+        
+        tvContenidoValidar.getColumns().addAll(salasColumn,diaColumn);
+        tvContenidoValidar.setItems(datos);
     }
+    
+   
 
-    @FXML
-    public void generarTicket(ActionEvent event) {
-        List<String> unionArray = new ArrayList<>();
-        
-        String salas = String.join(",", columnaSala());
-        String dias = String.join(",", columDia());
-        
-        unionArray.add(salas);
-        unionArray.add(dias);
-        
-        String contenidoEntrada = String.join("|", unionArray);
-        
-        System.out.println(contenidoEntrada);
-        
-        
-    }
     
-    public List<String> columnaSala(){
-        return tvContenido.getItems()
-                .stream()
-                .map(obj -> ((ManejoEntradas)obj).getNombreSala())
-                .collect(Collectors.toList());
-                
-    }
-    
-    public List<String> columDia(){
-        return tvContenido.getItems()
-                .stream()
-                .map(obj -> ((ManejoEntradas)obj).getDia())
-                .collect(Collectors.toList());
-                
-    }
     
 
 

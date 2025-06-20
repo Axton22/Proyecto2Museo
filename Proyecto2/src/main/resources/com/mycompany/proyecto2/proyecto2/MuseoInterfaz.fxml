@@ -224,7 +224,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Button fx:id="venderBtn" layoutX="528.0" layoutY="461.0" mnemonicParsing="false" onAction="#generarTicket" style="-fx-border-color: black;" text="Vender" />
+                        <Button fx:id="venderBtn" layoutX="528.0" layoutY="461.0" mnemonicParsing="false" style="-fx-border-color: black;" text="Vender" />
                         <Label layoutX="244.0" layoutY="14.0" text="Vender Entrada">
                            <font>
                               <Font name="System Bold" size="25.0" />
