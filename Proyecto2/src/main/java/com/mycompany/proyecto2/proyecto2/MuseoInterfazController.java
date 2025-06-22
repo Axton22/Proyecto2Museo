@@ -7,7 +7,8 @@ package com.mycompany.proyecto2.proyecto2;
 import Clases.ManejoEntradas;
 import Controladores.ColeccionJpaController;
 import Clases.ManejoMantenimiento;
-import Clases.QRManipulador;
+import Clases.ManejoValoracionSalas;
+import Clases.ValidacionEntradas;
 import Controladores.SalaJpaController;
 import Persistencia.Coleccion;
 import Persistencia.ComisionTarjetas;
@@ -33,6 +34,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -102,10 +104,6 @@ public class MuseoInterfazController implements Initializable {
     @FXML
     private TableView<String[]> tvContenidoValidar;
     @FXML
-    private Label lblNombreValoracion;
-    @FXML
-    private Label lblColeccionValoracion;
-    @FXML
     private Label lblTipoValoracion;
     @FXML
     private Label lblDetalleValoracion;
@@ -143,14 +141,35 @@ public class MuseoInterfazController implements Initializable {
     private TextField txtImageName;
     @FXML
     private Button btnSearchQR;
-    
-    private File selectedFile;
-    
-    private String contentQR;
+    @FXML
+    private Button NuevaEntradaBtn;
+    @FXML
+    private ImageView estrella1;
+    @FXML
+    private ImageView estrella2;
+    @FXML
+    private ImageView estrella3;
+    @FXML
+    private ImageView estrella4;
+    @FXML
+    private ImageView estrella5;
+    @FXML
+    private Button buscarQrBtn;
+    @FXML
+    private ImageView QrImagen;
+    @FXML
+    private TextField QrTf;
+    @FXML
+    private Label nombreSalaLbl;
+    @FXML
+    private Label nombreColeccionLbl;
+    @FXML
+    private Button validarQrBtn;
+    @FXML
+    private ImageView EspecieTematicaImg;
+    @FXML
+    private TextArea observacionTa;
 
-    private ManejoEntradas entradas = new ManejoEntradas();
-    
-    private QRManipulador qrCode = new QRManipulador();
     /**
      * Initializes the controller class.
      */
@@ -169,6 +188,11 @@ public class MuseoInterfazController implements Initializable {
         
         ColeccionJpaController ctrl = new ColeccionJpaController();
         
+        ManejoEntradas entradas = new ManejoEntradas();
+        
+        ManejoValoracionSalas valoracionSalas = new ManejoValoracionSalas();
+
+        
         
         interfaz.manejoInterfaz(SalaBtn, coleccionBtn, especiesBtn, tematicasBtn, preciosBtn, comisionesBtn, tvContenido, 
                 infoTxt, GuardarBtn, infoLbl, insertarBtn, FiltrarTf, FiltrarCb, FiltrarBtn, eliminarBtn, editarBtn, infoCb, 
@@ -176,13 +200,16 @@ public class MuseoInterfazController implements Initializable {
                 btnValidar, btnReportes);
         
         entradas.ventaEntradas(nombreVisitanteTf, tipoTarjetaCb, salasCb, diasDp, agregarBtn,venderBtn, lblSubtotal, lblIVA,
-                lblTotal, tvContenidoVender);
+                lblTotal, tvContenidoVender, btnValidar, tvContenidoValidar, btnSearchQR, imgQR, txtImageName, NuevaEntradaBtn);
         
-        
-        
-
+        valoracionSalas.generarQRSalas();
+        valoracionSalas.filePicker(buscarQrBtn, QrTf, QrImagen);
+        valoracionSalas.validarSalas(validarQrBtn, EspecieTematicaImg, nombreSalaLbl, nombreColeccionLbl, estrella1, 
+                estrella2, estrella3, estrella4, estrella5, observacionTa);
     }    
     
+    
+    //Cambios de escena con Tap Pane
     @FXML
     private void cambiarVender(ActionEvent event) {
         tpContenidos.getSelectionModel().select(tabVender);
@@ -201,68 +228,4 @@ public class MuseoInterfazController implements Initializable {
         tpContenidos.getSelectionModel().select(tabReportes);
     }
 
-    @FXML
-    private void filePicker(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Seleccione el codigo QR");
-        fileChooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Image Files", "*.jpg")
-        );
-        
-        selectedFile = fileChooser.showOpenDialog(null);
-        
-        if (selectedFile != null) {
-            
-            txtImageName.setText(selectedFile.getName());
-            
-            try {
-                
-                Image image = new Image(selectedFile.toURI().toString());
-                imgQR.setImage(image);
-            
-            } catch (Exception error) {
-                    error.printStackTrace();
-                }
-        }
-    }
-    
-    @FXML
-    private void validarEntrada(ActionEvent event) {
-        
-        String qrLeido = qrCode.leerQR(selectedFile);
-        
-        System.out.println(qrLeido);
-        
-        String [] division = qrLeido.split("\\|");
-        
-        String[] salas = division[0].split(",");
-        String[] dias = division[1].split(",");
-        
-        tvContenidoValidar.getColumns().clear();
-        
-        TableColumn salasColumn = new TableColumn("Salas");
-        TableColumn diaColumn = new TableColumn("Dia");
-        
-        ObservableList<String[]> datos = FXCollections.observableArrayList();
-        
-        for (int i = 0; i < salas.length; i++) {
-            String sala = i < salas.length ? salas[i] : "";
-            String dia = i < dias.length ? dias[i] : "";
-            datos.add(new String[]{sala,dia});
-        }
-        
-        tvContenidoValidar.getColumns().addAll(salasColumn,diaColumn);
-        tvContenidoValidar.setItems(datos);
-    }
-    
-   
-
-    
-    
-
-
-    
-    
-    
-    
 }

@@ -53,6 +53,15 @@ public class SalaJpaController {
         return findSalaEntities(false, maxResults, firstResults);
     }
     
+    public Sala findSala(int id) {
+        EntityManager em = getEmf().createEntityManager();
+        try {
+            return em.find(Sala.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
     public void create(Sala sala) {
         EntityManager em = null;
         

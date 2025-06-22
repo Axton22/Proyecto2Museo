@@ -1,0 +1,24 @@
+#Ignorar compilados
+*.class
+
+#Ignorar carpetas de compilación
+/bin/
+/build/
+
+#Ignorar archivos de configuración de IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+#Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+
+#Ignorar archivos temporales
+*.log
+*.tmp
+
+#Ignorar credenciales
+.json/credenciales.json

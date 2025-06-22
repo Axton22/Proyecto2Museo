@@ -2199,10 +2199,5 @@ public class ManejoMantenimiento {
             }
         });
     }
-    
-    /*public void probar(Pane pane) {
-        for (Node nodo : pane.getChildren()) {
-            nodo.setVisible(false);
-        }
-    }*/
+
 }

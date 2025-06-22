@@ -9,6 +9,8 @@
     <class>Persistencia.Coleccion</class>
     <class>Persistencia.Precio</class>
     <class>Persistencia.ComisionTarjetas</class>
+    <class>Persistencia.Entrada</class>
+    <class>Persistencia.Valoracionsala</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/museoDb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
