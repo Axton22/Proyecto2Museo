@@ -131,7 +131,7 @@ public class ManejoValoracionSalas {
                         valoracion = new Valoracionsala();
                     
                         valoracion.setIdSala(sala); 
-                        valoracion.setValoracion(1);
+                        valoracion.setValoracion(indice + 1);
                     
                     if (observacionTa.getText().isEmpty()) {
                         valoracion.setObservacion("No ingresaron observación");
@@ -140,7 +140,7 @@ public class ManejoValoracionSalas {
                         valoracion.setObservacion(observacionTa.getText());
                     }
                     
-                    //valoracionCtrl.create(valoracion);
+                    valoracionCtrl.create(valoracion);
                     
                     });
                     
@@ -157,17 +157,27 @@ public class ManejoValoracionSalas {
                 nombreSalaLbl.setText("Sala de música");
                 nombreColeccionLbl.setText("Coleccion de Instrumentos");
                 
-                estrella1.setOnMouseClicked(ev-> {
+                for (int i = 0; i < estrellas.length; i++) {
+                    final int indice = i;
                     
-                    estrella1.setImage(EstrellaAmarilla);
+                    estrellas[i].setOnMouseClicked(e ->{
                     
-                    SalaJpaController salaController = new SalaJpaController();
-                    Sala sala = salaController.findSala(10); 
+                        for (int j = 0; j < estrellas.length; j++) {
+                            if(j<=indice){
+                                estrellas[j].setImage(EstrellaAmarilla);
+                            }else{
+                            
+                                estrellas[j].setImage(EstrellaGris);
+                                
+                            }
+                        }
+                        SalaJpaController salaController = new SalaJpaController();
+                        Sala sala = salaController.findSala(10); 
 
-                    valoracion = new Valoracionsala();
+                        valoracion = new Valoracionsala();
                     
-                    valoracion.setIdSala(sala); 
-                    valoracion.setValoracion(1);
+                        valoracion.setIdSala(sala); 
+                        valoracion.setValoracion(indice + 1);
                     
                     if (observacionTa.getText().isEmpty()) {
                         valoracion.setObservacion("No ingresaron observación");
@@ -176,9 +186,11 @@ public class ManejoValoracionSalas {
                         valoracion.setObservacion(observacionTa.getText());
                     }
                     
-                    //valoracionCtrl.create(valoracion);
+                    valoracionCtrl.create(valoracion);
                     
-                });
+                    });
+                    
+                }
                 
                 System.out.println("ℹ️ Info: Sala de Música");
                 
@@ -191,17 +203,27 @@ public class ManejoValoracionSalas {
                 nombreSalaLbl.setText("Sala del Tiempo y el Clima");
                 nombreColeccionLbl.setText("Coleccion de Instrumentos de Medicion");
                 
-                estrella1.setOnMouseClicked(ev-> {
+                for (int i = 0; i < estrellas.length; i++) {
+                    final int indice = i;
                     
-                    estrella1.setImage(EstrellaAmarilla);
+                    estrellas[i].setOnMouseClicked(e ->{
                     
-                    SalaJpaController salaController = new SalaJpaController();
-                    Sala sala = salaController.findSala(10); 
+                        for (int j = 0; j < estrellas.length; j++) {
+                            if(j<=indice){
+                                estrellas[j].setImage(EstrellaAmarilla);
+                            }else{
+                            
+                                estrellas[j].setImage(EstrellaGris);
+                                
+                            }
+                        }
+                        SalaJpaController salaController = new SalaJpaController();
+                        Sala sala = salaController.findSala(10); 
 
-                    valoracion = new Valoracionsala();
+                        valoracion = new Valoracionsala();
                     
-                    valoracion.setIdSala(sala); 
-                    valoracion.setValoracion(1);
+                        valoracion.setIdSala(sala); 
+                        valoracion.setValoracion(indice + 1);
                     
                     if (observacionTa.getText().isEmpty()) {
                         valoracion.setObservacion("No ingresaron observación");
@@ -210,9 +232,11 @@ public class ManejoValoracionSalas {
                         valoracion.setObservacion(observacionTa.getText());
                     }
                     
-                    //valoracionCtrl.create(valoracion);
+                    valoracionCtrl.create(valoracion);
                     
-                });
+                    });
+                    
+                }
                 
                 System.out.println("ℹ️ Info: Sala del Tiempo y el Clima");
                 
@@ -225,17 +249,27 @@ public class ManejoValoracionSalas {
                 nombreSalaLbl.setText("Sala de espacio exterior");
                 nombreColeccionLbl.setText("Coleccion de partes de Cohete");
                 
-                estrella1.setOnMouseClicked(ev-> {
+                for (int i = 0; i < estrellas.length; i++) {
+                    final int indice = i;
                     
-                    estrella1.setImage(EstrellaAmarilla);
+                    estrellas[i].setOnMouseClicked(e ->{
                     
-                    SalaJpaController salaController = new SalaJpaController();
-                    Sala sala = salaController.findSala(10); 
+                        for (int j = 0; j < estrellas.length; j++) {
+                            if(j<=indice){
+                                estrellas[j].setImage(EstrellaAmarilla);
+                            }else{
+                            
+                                estrellas[j].setImage(EstrellaGris);
+                                
+                            }
+                        }
+                        SalaJpaController salaController = new SalaJpaController();
+                        Sala sala = salaController.findSala(10); 
 
-                    valoracion = new Valoracionsala();
+                        valoracion = new Valoracionsala();
                     
-                    valoracion.setIdSala(sala); 
-                    valoracion.setValoracion(1);
+                        valoracion.setIdSala(sala); 
+                        valoracion.setValoracion(indice + 1);
                     
                     if (observacionTa.getText().isEmpty()) {
                         valoracion.setObservacion("No ingresaron observación");
@@ -244,9 +278,11 @@ public class ManejoValoracionSalas {
                         valoracion.setObservacion(observacionTa.getText());
                     }
                     
-                    //valoracionCtrl.create(valoracion);
+                    valoracionCtrl.create(valoracion);
                     
-                });
+                    });
+                    
+                }
                 
                 System.out.println("ℹ️ Info: Sala de Espacio Exterior");
                 
@@ -259,17 +295,27 @@ public class ManejoValoracionSalas {
                 nombreSalaLbl.setText("Sala de civilizaciones perdidas");
                 nombreColeccionLbl.setText("Coleccion de piedras");
                 
-                estrella1.setOnMouseClicked(ev-> {
+                for (int i = 0; i < estrellas.length; i++) {
+                    final int indice = i;
                     
-                    estrella1.setImage(EstrellaAmarilla);
+                    estrellas[i].setOnMouseClicked(e ->{
                     
-                    SalaJpaController salaController = new SalaJpaController();
-                    Sala sala = salaController.findSala(10); 
+                        for (int j = 0; j < estrellas.length; j++) {
+                            if(j<=indice){
+                                estrellas[j].setImage(EstrellaAmarilla);
+                            }else{
+                            
+                                estrellas[j].setImage(EstrellaGris);
+                                
+                            }
+                        }
+                        SalaJpaController salaController = new SalaJpaController();
+                        Sala sala = salaController.findSala(10); 
 
-                    valoracion = new Valoracionsala();
+                        valoracion = new Valoracionsala();
                     
-                    valoracion.setIdSala(sala); 
-                    valoracion.setValoracion(1);
+                        valoracion.setIdSala(sala); 
+                        valoracion.setValoracion(indice + 1);
                     
                     if (observacionTa.getText().isEmpty()) {
                         valoracion.setObservacion("No ingresaron observación");
@@ -278,9 +324,11 @@ public class ManejoValoracionSalas {
                         valoracion.setObservacion(observacionTa.getText());
                     }
                     
-                    //valoracionCtrl.create(valoracion);
+                    valoracionCtrl.create(valoracion);
                     
-                });
+                    });
+                    
+                }
                 
                 System.out.println("ℹ️ Info: Sala de Civilizaciones Perdidas");
                 
@@ -293,17 +341,27 @@ public class ManejoValoracionSalas {
                 nombreSalaLbl.setText("inventos.jpeg");
                 nombreColeccionLbl.setText("Expocision de prototipos");
                 
-                estrella1.setOnMouseClicked(ev-> {
+                for (int i = 0; i < estrellas.length; i++) {
+                    final int indice = i;
                     
-                    estrella1.setImage(EstrellaAmarilla);
+                    estrellas[i].setOnMouseClicked(e ->{
                     
-                    SalaJpaController salaController = new SalaJpaController();
-                    Sala sala = salaController.findSala(10); 
+                        for (int j = 0; j < estrellas.length; j++) {
+                            if(j<=indice){
+                                estrellas[j].setImage(EstrellaAmarilla);
+                            }else{
+                            
+                                estrellas[j].setImage(EstrellaGris);
+                                
+                            }
+                        }
+                        SalaJpaController salaController = new SalaJpaController();
+                        Sala sala = salaController.findSala(10); 
 
-                    valoracion = new Valoracionsala();
+                        valoracion = new Valoracionsala();
                     
-                    valoracion.setIdSala(sala); 
-                    valoracion.setValoracion(1);
+                        valoracion.setIdSala(sala); 
+                        valoracion.setValoracion(indice + 1);
                     
                     if (observacionTa.getText().isEmpty()) {
                         valoracion.setObservacion("No ingresaron observación");
@@ -312,9 +370,11 @@ public class ManejoValoracionSalas {
                         valoracion.setObservacion(observacionTa.getText());
                     }
                     
-                    //valoracionCtrl.create(valoracion);
+                    valoracionCtrl.create(valoracion);
                     
-                });
+                    });
+                    
+                }
                 
                 System.out.println("ℹ️ Info: Sala de Inventos");
                 
@@ -328,17 +388,27 @@ public class ManejoValoracionSalas {
                 nombreSalaLbl.setText("Sala de Especies en Extinción");
                 nombreColeccionLbl.setText("Coleccion de Especies en Peligro de exticion");
                 
-                estrella1.setOnMouseClicked(ev-> {
+                for (int i = 0; i < estrellas.length; i++) {
+                    final int indice = i;
                     
-                    estrella1.setImage(EstrellaAmarilla);
+                    estrellas[i].setOnMouseClicked(e ->{
                     
-                    SalaJpaController salaController = new SalaJpaController();
-                    Sala sala = salaController.findSala(10); 
+                        for (int j = 0; j < estrellas.length; j++) {
+                            if(j<=indice){
+                                estrellas[j].setImage(EstrellaAmarilla);
+                            }else{
+                            
+                                estrellas[j].setImage(EstrellaGris);
+                                
+                            }
+                        }
+                        SalaJpaController salaController = new SalaJpaController();
+                        Sala sala = salaController.findSala(10); 
 
-                    valoracion = new Valoracionsala();
+                        valoracion = new Valoracionsala();
                     
-                    valoracion.setIdSala(sala); 
-                    valoracion.setValoracion(1);
+                        valoracion.setIdSala(sala); 
+                        valoracion.setValoracion(1);
                     
                     if (observacionTa.getText().isEmpty()) {
                         valoracion.setObservacion("No ingresaron observación");
@@ -347,9 +417,11 @@ public class ManejoValoracionSalas {
                         valoracion.setObservacion(observacionTa.getText());
                     }
                     
-                    //valoracionCtrl.create(valoracion);
+                    valoracionCtrl.create(valoracion);
                     
-                });
+                    });
+                    
+                }
                 
                 
             } else {

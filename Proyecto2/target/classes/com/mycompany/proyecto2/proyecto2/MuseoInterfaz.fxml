@@ -19,7 +19,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -272,14 +271,12 @@
                               <Font name="System Bold" size="25.0" />
                            </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="281.0" layoutX="37.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="150.0" layoutX="37.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                         <Label layoutX="37.0" layoutY="92.0" text="Especies/Tematica">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Line endX="180.0" endY="265.0" layoutX="57.0" layoutY="138.0" startX="-20.0" startY="-16.0" />
-                        <Line endX="130.0" endY="-39.0" layoutX="107.0" layoutY="161.0" startX="-70.0" startY="242.0" />
                         <Label layoutX="247.0" layoutY="140.0" prefHeight="17.0" prefWidth="48.0" text="Nombre:" />
                         <Label layoutX="247.0" layoutY="173.0" text="Coleccion:" />
                         <Label fx:id="nombreSalaLbl" layoutX="314.0" layoutY="140.0" prefHeight="17.0" prefWidth="171.0" />
@@ -317,7 +314,7 @@
                         <ImageView fx:id="QrImagen" fitHeight="123.0" fitWidth="143.0" layoutX="490.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
                         <TextField fx:id="QrTf" layoutX="488.0" layoutY="229.0" />
                         <Button fx:id="validarQrBtn" layoutX="490.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Validar Qr" />
-                        <ImageView fx:id="EspecieTematicaImg" fitHeight="280.0" fitWidth="202.0" layoutX="36.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="EspecieTematicaImg" fitHeight="150.0" fitWidth="202.0" layoutX="36.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
               </content>

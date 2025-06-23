@@ -30,6 +30,8 @@ public class ManejoReportes {
 
     public void totalComisiones(Button validarYGenerarPDF,DatePicker desde,DatePicker hasta){
         
+        String rutaCarpeta = "Reportes";
+        String rutaArchivo = rutaCarpeta + "/reporte.pdf";
         
         validarYGenerarPDF.setOnAction(e -> {
             
@@ -50,11 +52,14 @@ public class ManejoReportes {
                 contenido.add(linea);
             }
              
-             crearPDF(contenido);
+             crearPDF(contenido,rutaArchivo);
         });
     }
     
     public void mejoresYPeores(Button btnMejoresSalas, Button btnPeoresSalas,Button generarPDF){
+        
+        String rutaCarpeta = "ReportesValoracion";
+        String rutaArchivo = rutaCarpeta + "/reporte.pdf";
         
         generarPDF.setDisable(true);
         
@@ -93,23 +98,27 @@ public class ManejoReportes {
                     String nombreSala = (String) fila[0];
                     Double promedio = ((Number) fila[1]).doubleValue();
                     System.out.println(nombreSala + ": " + promedio);
+                    
+                    String linea = nombreSala + String.format("%.2f", promedio);
+                    
+                    contenido.add(linea);
                 }
+                crearPDF(contenido,rutaArchivo);
             }
         });
         
     }
     
-    public void crearPDF(List<String> contenido) {
-    String rutaCarpeta = "Reportes";
-    String rutaArchivo = rutaCarpeta + "/reporte.pdf";
+    public void crearPDF(List<String> contenido,String ruta) {
+    
 
     try {
-        File carpeta = new File(rutaCarpeta);
+        File carpeta = new File(ruta);
         if (!carpeta.exists()) {
             carpeta.mkdirs(); // crea la carpeta si no existe
         }
 
-        PdfWriter writer = new PdfWriter(rutaArchivo);
+        PdfWriter writer = new PdfWriter(ruta);
         PdfDocument pdf = new PdfDocument(writer);
         Document documento = new Document(pdf);
 
@@ -120,7 +129,7 @@ public class ManejoReportes {
         }
 
         documento.close();
-        System.out.println("PDF creado en: " + rutaArchivo);
+        System.out.println("PDF creado en: " + ruta);
     } catch (Exception e) {
         e.printStackTrace();
     }
