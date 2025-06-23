@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 
@@ -59,7 +60,7 @@ public class ManejoReportes {
     public void mejoresYPeores(Button btnMejoresSalas, Button btnPeoresSalas,Button generarPDF){
         
         String rutaCarpeta = "ReportesValoracion";
-        String rutaArchivo = rutaCarpeta + "/reporte.pdf";
+        String rutaArchivo = rutaCarpeta + "/reporteValoracion.pdf";
         
         generarPDF.setDisable(true);
         
@@ -101,8 +102,11 @@ public class ManejoReportes {
                     
                     String linea = nombreSala + String.format("%.2f", promedio);
                     
+                    System.out.println(linea);
+                    
                     contenido.add(linea);
                 }
+                
                 crearPDF(contenido,rutaArchivo);
             }
         });
@@ -113,7 +117,9 @@ public class ManejoReportes {
     
 
     try {
-        File carpeta = new File(ruta);
+        File archivo = new File(ruta);
+        File carpeta = archivo.getParentFile(); 
+        
         if (!carpeta.exists()) {
             carpeta.mkdirs(); // crea la carpeta si no existe
         }
@@ -129,8 +135,19 @@ public class ManejoReportes {
         }
 
         documento.close();
+        
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Error");
+        alert.setContentText("Se creo el PDF");
+        alert.showAndWait();
+        
+        
         System.out.println("PDF creado en: " + ruta);
     } catch (Exception e) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error");
+        alert.setContentText("No se creo el pdf: "+e.toString());
+        alert.showAndWait();
         e.printStackTrace();
     }
 }

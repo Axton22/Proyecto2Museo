@@ -141,6 +141,11 @@ public class ManejoValoracionSalas {
                     }
                     
                     valoracionCtrl.create(valoracion);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Éxito");
+                    alert.setContentText("La sala se valoró correctamente");
+                    alert.showAndWait();
                     
                     });
                     
@@ -172,7 +177,7 @@ public class ManejoValoracionSalas {
                             }
                         }
                         SalaJpaController salaController = new SalaJpaController();
-                        Sala sala = salaController.findSala(10); 
+                        Sala sala = salaController.findSala(11); 
 
                         valoracion = new Valoracionsala();
                     
@@ -187,6 +192,11 @@ public class ManejoValoracionSalas {
                     }
                     
                     valoracionCtrl.create(valoracion);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Éxito");
+                    alert.setContentText("La sala se valoró correctamente");
+                    alert.showAndWait();
                     
                     });
                     
@@ -218,7 +228,7 @@ public class ManejoValoracionSalas {
                             }
                         }
                         SalaJpaController salaController = new SalaJpaController();
-                        Sala sala = salaController.findSala(10); 
+                        Sala sala = salaController.findSala(12); 
 
                         valoracion = new Valoracionsala();
                     
@@ -233,6 +243,11 @@ public class ManejoValoracionSalas {
                     }
                     
                     valoracionCtrl.create(valoracion);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Éxito");
+                    alert.setContentText("La sala se valoró correctamente");
+                    alert.showAndWait();
                     
                     });
                     
@@ -264,7 +279,7 @@ public class ManejoValoracionSalas {
                             }
                         }
                         SalaJpaController salaController = new SalaJpaController();
-                        Sala sala = salaController.findSala(10); 
+                        Sala sala = salaController.findSala(17); 
 
                         valoracion = new Valoracionsala();
                     
@@ -279,6 +294,11 @@ public class ManejoValoracionSalas {
                     }
                     
                     valoracionCtrl.create(valoracion);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Éxito");
+                    alert.setContentText("La sala se valoró correctamente");
+                    alert.showAndWait();
                     
                     });
                     
@@ -310,7 +330,7 @@ public class ManejoValoracionSalas {
                             }
                         }
                         SalaJpaController salaController = new SalaJpaController();
-                        Sala sala = salaController.findSala(10); 
+                        Sala sala = salaController.findSala(18); 
 
                         valoracion = new Valoracionsala();
                     
@@ -325,6 +345,11 @@ public class ManejoValoracionSalas {
                     }
                     
                     valoracionCtrl.create(valoracion);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Éxito");
+                    alert.setContentText("La sala se valoró correctamente");
+                    alert.showAndWait();
                     
                     });
                     
@@ -332,9 +357,9 @@ public class ManejoValoracionSalas {
                 
                 System.out.println("ℹ️ Info: Sala de Civilizaciones Perdidas");
                 
-            } else if (nombreArchivo.equalsIgnoreCase("Sala de Inventos")) {
+            } else if (nombreArchivo.equalsIgnoreCase("Sala de los Inventos")) {
                 
-                File file = new File("src/main/resources/Imágenes/civilizacionesPerdidas.jpg");
+                File file = new File("src/main/resources/Imágenes/inventos.jpeg");
                 Image img = new Image(file.toURI().toString());
                 
                 especieTematicaImg.setImage(img);
@@ -356,7 +381,7 @@ public class ManejoValoracionSalas {
                             }
                         }
                         SalaJpaController salaController = new SalaJpaController();
-                        Sala sala = salaController.findSala(10); 
+                        Sala sala = salaController.findSala(19); 
 
                         valoracion = new Valoracionsala();
                     
@@ -371,6 +396,11 @@ public class ManejoValoracionSalas {
                     }
                     
                     valoracionCtrl.create(valoracion);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Éxito");
+                    alert.setContentText("La sala se valoró correctamente");
+                    alert.showAndWait();
                     
                     });
                     
@@ -403,7 +433,7 @@ public class ManejoValoracionSalas {
                             }
                         }
                         SalaJpaController salaController = new SalaJpaController();
-                        Sala sala = salaController.findSala(10); 
+                        Sala sala = salaController.findSala(20); 
 
                         valoracion = new Valoracionsala();
                     
@@ -418,6 +448,11 @@ public class ManejoValoracionSalas {
                     }
                     
                     valoracionCtrl.create(valoracion);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setHeaderText(null);
+                    alert.setTitle("Éxito");
+                    alert.setContentText("La sala se valoró correctamente");
+                    alert.showAndWait();
                     
                     });
                     
