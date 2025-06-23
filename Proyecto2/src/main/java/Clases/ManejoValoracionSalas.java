@@ -79,8 +79,16 @@ public class ManejoValoracionSalas {
     }
     
     public void validarSalas(Button validarBtn, ImageView especieTematicaImg, Label nombreSalaLbl, Label nombreColeccionLbl,
-            ImageView estrella1, ImageView estrella2, ImageView estrella3, ImageView estrella4, ImageView estrella5, 
+            ImageView estrella1, ImageView estrella2, ImageView estrella3, ImageView estrella4, ImageView estrella5,
             TextArea observacionTa) {
+        
+        ImageView [] estrellas ={estrella1,estrella2,estrella3,estrella4,estrella5};
+        
+        File fileEst1 = new File("src/main/resources/Imágenes/EstrellaValoraciónAmarilla.png");
+        Image EstrellaAmarilla = new Image(fileEst1.toURI().toString());
+        
+        File fileEst2 = new File("src/main/resources/Imágenes/EstrellaValoración.png");
+        Image EstrellaGris = new Image(fileEst2.toURI().toString());
 
         validarBtn.setOnAction(event-> {
            if (archivoSeleccionado == null) {
@@ -102,10 +110,56 @@ public class ManejoValoracionSalas {
                 nombreSalaLbl.setText("Sala de Historia Natural");
                 nombreColeccionLbl.setText("Coleccion de Fósiles");
                 
+                
+                for (int i = 0; i < estrellas.length; i++) {
+                    final int indice = i;
+                    
+                    estrellas[i].setOnMouseClicked(e ->{
+                    
+                        for (int j = 0; j < estrellas.length; j++) {
+                            if(j<=indice){
+                                estrellas[j].setImage(EstrellaAmarilla);
+                            }else{
+                            
+                                estrellas[j].setImage(EstrellaGris);
+                                
+                            }
+                        }
+                        SalaJpaController salaController = new SalaJpaController();
+                        Sala sala = salaController.findSala(10); 
+
+                        valoracion = new Valoracionsala();
+                    
+                        valoracion.setIdSala(sala); 
+                        valoracion.setValoracion(1);
+                    
+                    if (observacionTa.getText().isEmpty()) {
+                        valoracion.setObservacion("No ingresaron observación");
+                        
+                    } else {
+                        valoracion.setObservacion(observacionTa.getText());
+                    }
+                    
+                    //valoracionCtrl.create(valoracion);
+                    
+                    });
+                    
+                }
+                
+                
+                
+            } else if (nombreArchivo.equalsIgnoreCase("Sala de música")) {
+                
+                File file = new File("src/main/resources/Imágenes/musica(2).jpeg");
+                Image img = new Image(file.toURI().toString());
+                
+                especieTematicaImg.setImage(img);
+                nombreSalaLbl.setText("Sala de música");
+                nombreColeccionLbl.setText("Coleccion de Instrumentos");
+                
                 estrella1.setOnMouseClicked(ev-> {
-                    File fileEst1 = new File("src/main/resources/Imágenes/EstrellaValoraciónAmarilla.png");
-                    Image imgEst1 = new Image(fileEst1.toURI().toString());
-                    estrella1.setImage(imgEst1);
+                    
+                    estrella1.setImage(EstrellaAmarilla);
                     
                     SalaJpaController salaController = new SalaJpaController();
                     Sala sala = salaController.findSala(10); 
@@ -126,22 +180,176 @@ public class ManejoValoracionSalas {
                     
                 });
                 
-            } else if (nombreArchivo.equalsIgnoreCase("Sala de música")) {
                 System.out.println("ℹ️ Info: Sala de Música");
                 
             } else if (nombreArchivo.equalsIgnoreCase("Sala del Tiempo y el Clima")) {
+                
+                File file = new File("src/main/resources/Imágenes/tiempoYClima.jpg");
+                Image img = new Image(file.toURI().toString());
+                
+                especieTematicaImg.setImage(img);
+                nombreSalaLbl.setText("Sala del Tiempo y el Clima");
+                nombreColeccionLbl.setText("Coleccion de Instrumentos de Medicion");
+                
+                estrella1.setOnMouseClicked(ev-> {
+                    
+                    estrella1.setImage(EstrellaAmarilla);
+                    
+                    SalaJpaController salaController = new SalaJpaController();
+                    Sala sala = salaController.findSala(10); 
+
+                    valoracion = new Valoracionsala();
+                    
+                    valoracion.setIdSala(sala); 
+                    valoracion.setValoracion(1);
+                    
+                    if (observacionTa.getText().isEmpty()) {
+                        valoracion.setObservacion("No ingresaron observación");
+                        
+                    } else {
+                        valoracion.setObservacion(observacionTa.getText());
+                    }
+                    
+                    //valoracionCtrl.create(valoracion);
+                    
+                });
+                
                 System.out.println("ℹ️ Info: Sala del Tiempo y el Clima");
                 
             } else if (nombreArchivo.equalsIgnoreCase("Sala de espacio exterior")) {
+                
+                File file = new File("src/main/resources/Imágenes/astronauta.jpg");
+                Image img = new Image(file.toURI().toString());
+                
+                especieTematicaImg.setImage(img);
+                nombreSalaLbl.setText("Sala de espacio exterior");
+                nombreColeccionLbl.setText("Coleccion de partes de Cohete");
+                
+                estrella1.setOnMouseClicked(ev-> {
+                    
+                    estrella1.setImage(EstrellaAmarilla);
+                    
+                    SalaJpaController salaController = new SalaJpaController();
+                    Sala sala = salaController.findSala(10); 
+
+                    valoracion = new Valoracionsala();
+                    
+                    valoracion.setIdSala(sala); 
+                    valoracion.setValoracion(1);
+                    
+                    if (observacionTa.getText().isEmpty()) {
+                        valoracion.setObservacion("No ingresaron observación");
+                        
+                    } else {
+                        valoracion.setObservacion(observacionTa.getText());
+                    }
+                    
+                    //valoracionCtrl.create(valoracion);
+                    
+                });
+                
                 System.out.println("ℹ️ Info: Sala de Espacio Exterior");
                 
             } else if (nombreArchivo.equalsIgnoreCase("Sala de civilizaciones perdidas")) {
+                
+                File file = new File("src/main/resources/Imágenes/civilizacionesPerdidas.jpg");
+                Image img = new Image(file.toURI().toString());
+                
+                especieTematicaImg.setImage(img);
+                nombreSalaLbl.setText("Sala de civilizaciones perdidas");
+                nombreColeccionLbl.setText("Coleccion de piedras");
+                
+                estrella1.setOnMouseClicked(ev-> {
+                    
+                    estrella1.setImage(EstrellaAmarilla);
+                    
+                    SalaJpaController salaController = new SalaJpaController();
+                    Sala sala = salaController.findSala(10); 
+
+                    valoracion = new Valoracionsala();
+                    
+                    valoracion.setIdSala(sala); 
+                    valoracion.setValoracion(1);
+                    
+                    if (observacionTa.getText().isEmpty()) {
+                        valoracion.setObservacion("No ingresaron observación");
+                        
+                    } else {
+                        valoracion.setObservacion(observacionTa.getText());
+                    }
+                    
+                    //valoracionCtrl.create(valoracion);
+                    
+                });
+                
                 System.out.println("ℹ️ Info: Sala de Civilizaciones Perdidas");
                 
             } else if (nombreArchivo.equalsIgnoreCase("Sala de Inventos")) {
+                
+                File file = new File("src/main/resources/Imágenes/civilizacionesPerdidas.jpg");
+                Image img = new Image(file.toURI().toString());
+                
+                especieTematicaImg.setImage(img);
+                nombreSalaLbl.setText("inventos.jpeg");
+                nombreColeccionLbl.setText("Expocision de prototipos");
+                
+                estrella1.setOnMouseClicked(ev-> {
+                    
+                    estrella1.setImage(EstrellaAmarilla);
+                    
+                    SalaJpaController salaController = new SalaJpaController();
+                    Sala sala = salaController.findSala(10); 
+
+                    valoracion = new Valoracionsala();
+                    
+                    valoracion.setIdSala(sala); 
+                    valoracion.setValoracion(1);
+                    
+                    if (observacionTa.getText().isEmpty()) {
+                        valoracion.setObservacion("No ingresaron observación");
+                        
+                    } else {
+                        valoracion.setObservacion(observacionTa.getText());
+                    }
+                    
+                    //valoracionCtrl.create(valoracion);
+                    
+                });
+                
                 System.out.println("ℹ️ Info: Sala de Inventos");
                 
             } else if (nombreArchivo.equalsIgnoreCase("Sala de Especies en Extinción")) {
+                
+                
+                File file = new File("src/main/resources/Imágenes/peligroExtincion.JPG");
+                Image img = new Image(file.toURI().toString());
+                
+                especieTematicaImg.setImage(img);
+                nombreSalaLbl.setText("Sala de Especies en Extinción");
+                nombreColeccionLbl.setText("Coleccion de Especies en Peligro de exticion");
+                
+                estrella1.setOnMouseClicked(ev-> {
+                    
+                    estrella1.setImage(EstrellaAmarilla);
+                    
+                    SalaJpaController salaController = new SalaJpaController();
+                    Sala sala = salaController.findSala(10); 
+
+                    valoracion = new Valoracionsala();
+                    
+                    valoracion.setIdSala(sala); 
+                    valoracion.setValoracion(1);
+                    
+                    if (observacionTa.getText().isEmpty()) {
+                        valoracion.setObservacion("No ingresaron observación");
+                        
+                    } else {
+                        valoracion.setObservacion(observacionTa.getText());
+                    }
+                    
+                    //valoracionCtrl.create(valoracion);
+                    
+                });
                 
                 
             } else {

@@ -7,6 +7,7 @@ package Controladores;
 import Persistencia.Valoracionsala;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -100,4 +101,24 @@ public class ValoracionsalaJpaController implements Serializable {
             }
         }
     }
+    public List<Object[]> obtenerTopCinco(boolean mejores) {
+        EntityManager em = emf.createEntityManager();
+    
+        try {
+            String orden = mejores ? "DESC" : "ASC";//hace cambio entre las mejores y las peores
+
+            String jpql = "SELECT v.idSala.nombreSala, AVG(v.valoracion) " +
+                        "FROM Valoracionsala v " +
+                        "GROUP BY v.idSala.nombreSala " +
+                        "ORDER BY AVG(v.valoracion) " + orden;
+
+            return em.createQuery(jpql, Object[].class)
+                    .setMaxResults(5) //solo te agarra 5
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+        
+    }
+
 }

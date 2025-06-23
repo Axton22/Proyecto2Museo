@@ -39,6 +39,9 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Entrada.findByAutorizada", query = "SELECT e FROM Entrada e WHERE e.autorizada = :autorizada")})
 public class Entrada implements Serializable {
 
+    @Column(name = "nombreTarjeta")
+    private String nombreTarjeta;
+
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "precio")
     private BigDecimal precio;
@@ -169,6 +172,14 @@ public class Entrada implements Serializable {
 
     public void setTotalPagar(BigDecimal totalPagar) {
         this.totalPagar = totalPagar;
+    }
+
+    public String getNombreTarjeta() {
+        return nombreTarjeta;
+    }
+
+    public void setNombreTarjeta(String nombreTarjeta) {
+        this.nombreTarjeta = nombreTarjeta;
     }
     
 }

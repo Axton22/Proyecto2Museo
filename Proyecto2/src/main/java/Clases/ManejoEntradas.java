@@ -71,6 +71,7 @@ public class ManejoEntradas {
     private String nombreVisitante;
     private String nombreSala;
     private String dia;
+    private String nombreTarjeta;
     private Precio salaSeleccionada;
     private ArrayList <Precio> listaSalas;
     private BigDecimal precioEntrada;
@@ -261,6 +262,12 @@ public class ManejoEntradas {
             listaSalas.add(salasCb.getValue());
             diaSeleccionado.add(diaDp.getValue());
             tipoTarjeta.add(tipoTarjetaCb.getValue());
+            
+            ComisionTarjetas tarjetaSeleccionada = tipoTarjetaCb.getValue();
+            
+            nombreTarjeta = tarjetaSeleccionada.toString();
+            
+            System.out.println(nombreTarjeta);
 
             //IMPORTANTE: Crear una instancia para que todo se maneje en esa misma instancia
             ManejoEntradas entradas = new ManejoEntradas();
@@ -302,6 +309,8 @@ public class ManejoEntradas {
             entrada.setIva(entradas.getIva());
             entrada.setTotalPagar(entradas.getTotalPagar());
             entrada.setAutorizada(false);
+            entrada.setNombreTarjeta(nombreTarjeta);
+            
             
             listaEntradas.add(entradas);
             tabla.setItems(listaEntradas);
@@ -343,6 +352,8 @@ public class ManejoEntradas {
                     entradaInd.setIva(listaEntradas.get(0).getIva());
                     entradaInd.setTotalPagar(listaEntradas.get(0).getTotalPagar());
                     entradaInd.setAutorizada(false);
+                    entradaInd.setNombreTarjeta(nombreTarjeta);
+                    entradaInd.setNombreTarjeta(nombreTarjeta);
 
                     entradaCtrl.create(entradaInd);
 

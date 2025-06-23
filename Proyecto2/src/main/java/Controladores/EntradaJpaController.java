@@ -6,11 +6,16 @@ package Controladores;
 
 import Persistencia.Entrada;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 
 /**
@@ -99,5 +104,27 @@ public class EntradaJpaController implements Serializable {
                 em.close();
             }
         }
+    }
+    public List<Object[]> obtenerTotalesPorTarjeta(LocalDate desde, LocalDate hasta) {
+        EntityManager em = emf.createEntityManager();
+
+        String jpql = "SELECT e.nombreTarjeta, SUM(e.comision) " +
+                        "FROM Entrada e " +
+                        "WHERE e.fechaVisita BETWEEN :desde AND :hasta " +
+                        "GROUP BY e.nombreTarjeta";
+
+        TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+        
+        Date desdeDate = Date.from(desde.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date hastaDate = Date.from(hasta.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        
+        query.setParameter("desde", desdeDate);
+        query.setParameter("hasta", hastaDate);
+
+        List<Object[]> resultados = query.getResultList();
+        em.close();
+        emf.close();
+
+        return resultados;
     }
 }

@@ -1,30 +1,32 @@
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\com\mycompany\proyecto2\proyecto2\MuseoInterfazController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\PrecioJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Clases\ValidacionEntradas.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\MuseoJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Museo.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Sala.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Clases\ManejoEntradas.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Clases\ManejoMantenimiento.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\ComisionTarjetas.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\EntradaJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Clases\ManejoValoracionSalas.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Tematica.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Precio.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\exceptions\PreexistingEntityException.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Usuarios.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\exceptions\IllegalOrphanException.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\ComisiontarjetasJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Entrada.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\EspeciesJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Especies.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\SalaJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\exceptions\NonexistentEntityException.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\TematicaJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Valoracionsala.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\com\mycompany\proyecto2\proyecto2\App.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\InterfazController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\UsuariosJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\ColeccionJpaController.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Persistencia\Coleccion.java
-C:\Users\Axton Urbina\OneDrive\Documentos\MainProject\Proyecto2\src\main\java\Controladores\ValoracionsalaJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Precio.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Tematica.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\InterfazController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\ComisionTarjetas.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Entrada.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Museo.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\MuseoJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\UsuariosJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Clases\ManejoReportes.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\ComisiontarjetasJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Clases\QRManipulador.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\com\mycompany\proyecto2\proyecto2\MuseoInterfazController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\EntradaJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\PrecioJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\ColeccionJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\exceptions\IllegalOrphanException.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Coleccion.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\exceptions\NonexistentEntityException.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\exceptions\PreexistingEntityException.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Clases\ManejoValoracionSalas.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Clases\ValidacionEntradas.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Usuarios.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Clases\ManejoMantenimiento.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\TematicaJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Sala.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Valoracionsala.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\com\mycompany\proyecto2\proyecto2\App.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Clases\ManejoEntradas.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Persistencia\Especies.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\EspeciesJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\SalaJpaController.java
+C:\Users\aleja\Desktop\repositorios\Proyecto2Museo\Proyecto2\src\main\java\Controladores\ValoracionsalaJpaController.java

@@ -7,6 +7,7 @@ package com.mycompany.proyecto2.proyecto2;
 import Clases.ManejoEntradas;
 import Controladores.ColeccionJpaController;
 import Clases.ManejoMantenimiento;
+import Clases.ManejoReportes;
 import Clases.ManejoValoracionSalas;
 import Clases.ValidacionEntradas;
 import Controladores.SalaJpaController;
@@ -38,6 +39,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
@@ -169,6 +171,20 @@ public class MuseoInterfazController implements Initializable {
     private ImageView EspecieTematicaImg;
     @FXML
     private TextArea observacionTa;
+    @FXML
+    private DatePicker dateHasta;
+    @FXML
+    private DatePicker dateDesde;
+    @FXML
+    private Button btnGenerarTotalComisiones;
+    @FXML
+    private Button btnMejoresSalas;
+    @FXML
+    private Button btnPeoresSalas;
+    @FXML
+    private Button btnGenerarTopCinco;
+    @FXML
+    private ImageView imgMuseo;
 
     /**
      * Initializes the controller class.
@@ -182,7 +198,11 @@ public class MuseoInterfazController implements Initializable {
         infoTxt.setVisible(false);
         GuardarBtn.setVisible(false);
         infoCb.setVisible(false);
-
+        
+        Image image = new Image("/Imágenes/museum-line-icon-logo-free-vector.jpg/");
+        
+        
+        imgMuseo.setImage(image);
         
         ManejoMantenimiento interfaz = new ManejoMantenimiento();
         
@@ -191,6 +211,8 @@ public class MuseoInterfazController implements Initializable {
         ManejoEntradas entradas = new ManejoEntradas();
         
         ManejoValoracionSalas valoracionSalas = new ManejoValoracionSalas();
+        
+        ManejoReportes manejoReportes = new ManejoReportes();
 
         
         
@@ -206,6 +228,10 @@ public class MuseoInterfazController implements Initializable {
         valoracionSalas.filePicker(buscarQrBtn, QrTf, QrImagen);
         valoracionSalas.validarSalas(validarQrBtn, EspecieTematicaImg, nombreSalaLbl, nombreColeccionLbl, estrella1, 
                 estrella2, estrella3, estrella4, estrella5, observacionTa);
+        
+        manejoReportes.totalComisiones(btnGenerarTotalComisiones, dateDesde, dateHasta);
+        manejoReportes.mejoresYPeores(btnMejoresSalas, btnPeoresSalas, btnGenerarTopCinco);
+        
     }    
     
     

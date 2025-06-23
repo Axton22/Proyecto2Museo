@@ -12,6 +12,7 @@ Controladores\ColeccionJpaController.class
 Controladores\TematicaJpaController.class
 Persistencia\Coleccion.class
 Clases\ManejoValoracionSalas.class
+Clases\ManejoReportes.class
 Controladores\MuseoJpaController.class
 Persistencia\Tematica.class
 Persistencia\Entrada.class
@@ -19,6 +20,7 @@ Persistencia\Valoracionsala_.class
 Persistencia\Especies.class
 Controladores\UsuariosJpaController.class
 Controladores\SalaJpaController.class
+Clases\QRManipulador.class
 Controladores\exceptions\PreexistingEntityException.class
 Persistencia\ComisionTarjetas_.class
 Clases\ManejoMantenimiento.class

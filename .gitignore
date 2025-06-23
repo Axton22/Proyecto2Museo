@@ -1,2 +1,4 @@
 src/main/resources/.json/
 target/classes/.json/
+/Proyecto2/src/main/resources/.json/credenciales.json
+/Proyecto2/target/classes/.json/credenciales.json

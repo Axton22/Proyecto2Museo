@@ -29,9 +29,6 @@
       <Pane layoutX="14.0" layoutY="20.0" prefHeight="555.0" prefWidth="214.0" style="-fx-border-color: black; -fx-border-width: 2;">
          <children>
             <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="2.0" fill="WHITE" height="191.0" layoutX="1.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="212.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="122.0" layoutX="36.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="145.0" />
-            <Line endX="98.0" endY="76.0" layoutX="81.0" layoutY="83.0" startX="-43.5" startY="-45.5" />
-            <Line endX="88.5" endY="-50.5" layoutX="91.0" layoutY="88.0" startX="-55.0" startY="71.0" />
             <Accordion layoutX="1.0" layoutY="193.0" prefHeight="364.0" prefWidth="214.0" style="-fx-background-color: White; -fx-border-color: black;">
                <panes>
                   <TitledPane animated="false" prefHeight="169.0" prefWidth="239.0" text="Mantenimiento">
@@ -124,11 +121,7 @@
                   </TitledPane>
                </panes>
             </Accordion>
-            <Label alignment="CENTER" layoutX="49.0" layoutY="161.0" prefHeight="28.0" prefWidth="112.0" text="Sala">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
+            <ImageView fx:id="imgMuseo" fitHeight="150.0" fitWidth="150.0" layoutX="33.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <TabPane fx:id="tpContenidos" layoutX="254.0" layoutY="20.0" prefHeight="555.0" prefWidth="658.0" tabClosingPolicy="UNAVAILABLE">
@@ -240,7 +233,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="232.0" layoutY="11.0" text="Validar Entrada">
+                        <Label layoutX="232.0" layoutY="14.0" text="Validar Entrada">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -264,9 +257,9 @@
                            </font>
                         </Label>
                         <Label fx:id="lblFecha" alignment="CENTER" contentDisplay="CENTER" layoutX="559.0" layoutY="83.0" prefHeight="17.0" prefWidth="55.0" />
-                        <TextField fx:id="txtImageName" layoutX="273.0" layoutY="72.0" />
-                        <Button fx:id="btnSearchQR" layoutX="304.0" layoutY="108.0" mnemonicParsing="false" text="Elegir entrada" />
-                        <Button fx:id="btnValidar" layoutX="324.0" layoutY="149.0" mnemonicParsing="false" text="Validar" />
+                        <TextField fx:id="txtImageName" layoutX="259.0" layoutY="51.0" />
+                        <Button fx:id="btnSearchQR" layoutX="259.0" layoutY="81.0" mnemonicParsing="false" text="Elegir entrada" />
+                        <Button fx:id="btnValidar" layoutX="259.0" layoutY="110.0" mnemonicParsing="false" text="Validar" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -274,7 +267,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="214.0" layoutY="14.0" text="Valoracion de Salas">
+                        <Label layoutX="215.0" layoutY="14.0" text="Valoracion de Salas">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -331,7 +324,30 @@
             </Tab>
             <Tab fx:id="tabReportes">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="277.0" layoutY="14.0" text="Reportes">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="dateDesde" layoutX="94.0" layoutY="95.0" promptText="Desde" />
+                        <DatePicker fx:id="dateHasta" layoutX="287.0" layoutY="95.0" promptText="Hasta" />
+                        <Label layoutX="94.0" layoutY="50.0" prefHeight="30.0" prefWidth="515.0" text="Elige un rango de fechas para generar un pdf con el total de comisiones">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnGenerarTotalComisiones" layoutX="475.0" layoutY="95.0" mnemonicParsing="false" text="Generar PDF" />
+                        <Button fx:id="btnMejoresSalas" layoutX="130.0" layoutY="279.0" mnemonicParsing="false" text="Cinco Mejores Salas" />
+                        <Button fx:id="btnPeoresSalas" layoutX="265.0" layoutY="279.0" mnemonicParsing="false" text="Cinco Peores Salas" />
+                        <Button fx:id="btnGenerarTopCinco" layoutX="218.0" layoutY="324.0" mnemonicParsing="false" text="Generar PDF" />
+                        <Label layoutX="91.0" layoutY="206.0" text="Presione una opcion para generar un PDF con el top de mejores o peores salas">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
